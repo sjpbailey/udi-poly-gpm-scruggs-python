@@ -1,0 +1,36 @@
+{
+	"name": "ArduinoGPM",
+	"docs": "https://github.com/sjpbailey/udi-poly-gpm-scruggs-python",
+	"type": "python3",
+	"executable": "GPMController.py",
+	"install": "install.sh",
+	"description": "Arduino to RPI serial to Server IP",
+	"notice": "Used for GPM meter attached to your Arduino then your RPI",
+	"shortPoll": "60",
+	"longPoll": "120",
+	"testMode": false,
+	"logLevel": "INFO",
+	"profile_version": "1.0.0",
+	"customParams": {
+		"ip": "0.0.0.0"
+	},
+	"credits": [
+		{
+			"title": "Arduino to RPI GPM Meter",
+			"author": "Bailey (SJPBailey)",
+			"version": "1.0.0",
+			"date": "December 19, 2023",
+			"source": "https://github.com/sjpbailey/udi-poly-gpm-scruggs-python",
+			"license": "https://github.com/sjpbailey/udi-poly-gpm-scruggs-pythonr/LICENSE"
+		}
+	],
+	"store": {
+		"developer": "Bailey sjpbailey1961@gmail.com",
+		"purchaseOptions": [
+			{
+				"isPerpetual": true,
+				"price": 0
+			}
+		]
+	}
+}
