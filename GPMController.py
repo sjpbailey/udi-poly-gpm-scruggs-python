@@ -22,6 +22,7 @@ class GPMController(udi_interface.Node):
         self.poly = polyglot
         self.name = 'GPM Controller'  # override what was passed in
         self.hb = 0
+        
         self.Parameters = Custom(polyglot, 'customparams')
         self.Notices = Custom(polyglot, 'notices')
         self.poly.subscribe(self.poly.START, self.start, address)
