@@ -1,28 +1,21 @@
-# Universal Devices BAS BASPI6U6R Controller
+# GPM Meter
 
-## BASpi-SYS6U6R DIY BacNet Control Device by Contemporary Controls
-
-### This Nodeserver is for custom control of BASpi modules on an IP Network network
-
-* The purpose of this Nodeserver is for Pool Control and home automation using BASpi modules on an IP network.
-* Python 3.7.7
+The purpose of this Simple Nodeserver is to display/report, GPM that comes from an Arduino UNO to a Raspberry Pi then passed to a socket server that displays GPM.
+Adds your Arduino GPM Meter in the Administrative Console instead of just in the Event Viewer.
+Requires additional programs:
+talktoarduino.py loaded on your RPI
+flow_GPM.ino sketch loaded on your Arduino
 
 * Supported Nodes
-  * Inputs
-  * Outputs
+* GPM Actual
 
-#### Configuration
+## Configuration
 
-##### Defaults
+### Defaults
 
-* Default Short Poll:  Every 2 minutes
-* Default Long Poll: Every 4 minutes
+* "ip": "0.0.0.0"
 
-###### User Provided
+#### User Provided
 
-* Enter the number of Controller nodes you desire 0-5
-* Enter your IP address for up to six (6) BASpi-SYS6U6R controller,
-* Config: key = nodes this parameter is provided, Value = (* = 1-6)
-* Config: key = ip_* (* = 1-6) this parameter is provided, Value = Enter Your BASpi IP Address, Example: key ip_0  value 192.168.1.47
+* Enter your IP Address
 * Save and restart the NodeServer
-  
