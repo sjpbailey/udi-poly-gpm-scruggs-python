@@ -82,7 +82,7 @@ class GPMController(udi_interface.Node):
             LOGGER.error('check_params: user not defined in customParams, please add it.  Using {}'.format(default_ip))
             self.ip = default_ip
 
-        if self.door_ip == default_ip:
+        if self.ip == default_ip:
             self.Notices['auth'] = 'Please set proper ip address in configuration page'
             self.setDriver('ST', 0)
         else:
