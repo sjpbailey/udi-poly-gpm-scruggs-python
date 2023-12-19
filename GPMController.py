@@ -97,7 +97,7 @@ class GPMController(udi_interface.Node):
         nodes = self.poly.getNodes()
         for node in nodes:
             nodes[node].reportDrivers()
-            self.discover()
+            #self.discover()
         if 'longPoll' in flag:
             LOGGER.debug('longPoll (controller)')
         else:
