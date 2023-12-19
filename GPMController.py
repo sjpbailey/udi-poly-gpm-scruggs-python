@@ -41,7 +41,8 @@ class GPMController(udi_interface.Node):
         self.check_params()    
 
     def start(self):
-        #self.poly.updateProfile()
+        self.poly.setCustomParamsDoc()
+        self.poly.updateProfile()
         self.discover()
 
     def discover(self, *args, **kwargs):
