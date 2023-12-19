@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 LOGGER = udi_interface.LOGGER
 LOG_HANDLER = udi_interface.LOG_HANDLER
 Custom = udi_interface.Custom
-ISY = udi_interface.ISY 
+#ISY = udi_interface.ISY 
 
 LOG_HANDLER.set_log_format('%(asctime)s %(threadName)-10s %(name)-18s %(levelname)-8s %(module)s:%(funcName)s: %(message)s')
 
@@ -34,7 +34,7 @@ class GPMController(udi_interface.Node):
         self.password = None
         self.ip = None
         #self.nem_oncor = None
-        self.isy = ISY(self.poly)
+        #self.isy = ISY(self.poly)
 
     def parameterHandler(self, params):
         self.Parameters.load(params)
