@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 LOGGER = udi_interface.LOGGER
 LOG_HANDLER = udi_interface.LOG_HANDLER
 Custom = udi_interface.Custom
-#ISY = udi_interface.ISY 
+
 
 LOG_HANDLER.set_log_format('%(asctime)s %(threadName)-10s %(name)-18s %(levelname)-8s %(module)s:%(funcName)s: %(message)s')
 
@@ -33,8 +33,6 @@ class GPMController(udi_interface.Node):
         self.user = None
         self.password = None
         self.ip = None
-        #self.nem_oncor = None
-        #self.isy = ISY(self.poly)
 
     def parameterHandler(self, params):
         self.Parameters.load(params)
@@ -50,7 +48,7 @@ class GPMController(udi_interface.Node):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         # Bind the socket to the port
-        host, port =  '192.168.1.18', 25000 #self.ip, 10000      #'192.168.1.18', 10000
+        host, port =  'localhost', 25000 #self.ip, 10000      #'192.168.1.18', 10000
         server_address = (host, port)
 
         print(f'Starting UDP server on {host} port {port}')
