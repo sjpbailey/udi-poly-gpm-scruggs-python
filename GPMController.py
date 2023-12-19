@@ -74,7 +74,7 @@ class GPMController(udi_interface.Node):
 
     def check_params(self):
         self.Notices.clear()
-        default_ip = "192.168.1.18"
+        default_ip = "192.168.1.0"
         
         self.ip = self.Parameters.ip
         if self.ip is None:
