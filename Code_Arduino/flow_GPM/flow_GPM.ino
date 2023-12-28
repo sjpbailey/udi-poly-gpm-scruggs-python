@@ -1,9 +1,3 @@
-//#include <WiFi.h>
-//#include <WiFiUdp.h>
-//#include <WiFiClient.h>
-//#include <WiFiServer.h>
-
-
 int sensorInterrupt = 0;  // interrupt 0
 int sensorPin       = 2; //Digital Pin 2
 int solenoidValve = 5; // Digital pin 5
@@ -39,7 +33,7 @@ void setup()
 void loop()
 {
  
-   if((millis() - oldTime) > 3000)    // Only process counters once per second
+   if((millis() - oldTime) > 1000)    // Only process counters once per second
   { 
     // Disable the interrupt while calculating flow rate and sending the value to the host
     detachInterrupt(sensorInterrupt);
@@ -70,13 +64,13 @@ void loop()
     //Serial.print("Flow rate: ");
     Serial.print(flowGPM, DEC);  // Print the integer part of the variable
     //Serial.print("GPM");
-    Serial.print("\n");           
+    Serial.print(" , ");           
  
     // Print the cumulative total of litres flowed since starting
     //Serial.print("Output Liquid Quantity: ");        
-    //Serial.print(totalGPM,DEC);
+    Serial.println(totalGPM,DEC);
     //Serial.println("Gallons"); 
-    //Serial.print("\t");     
+    //Serial.print(" , ");     
         
     if (totalMilliLitres > 40)
     {
