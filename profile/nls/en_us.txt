@@ -6,6 +6,9 @@ CMD-ctl-QUERY-NAME = Query
 CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
 CMD-ctl-SET_DM-NAME = Set Logger Level
 ST-ctl-GV1-NAME = GPM
+ST-ctl-GV2-NAME = GPM Total
+ST-ctl-ST-NAME = Online
+
 
 # Debug/Logger Modes
 CDM-9 = Debug + Modules

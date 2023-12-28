@@ -60,8 +60,12 @@ class GPMController(udi_interface.Node):
             # Wait for message
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
-            self.setDriver('GV1', message)
-            LOGGER.info(message)
+            dataArray=message.split(' , ')
+            #print('GPM:', dataArray[0], 'GPM Total:', dataArray[1])
+            self.setDriver('GV1', dataArray[0])
+            LOGGER.info('GPM:', dataArray[0])
+            self.setDriver('GV2', dataArray[1])
+            LOGGER.info('GPM Total:', dataArray[1])
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -117,8 +121,10 @@ class GPMController(udi_interface.Node):
         'REMOVE_NOTICES_ALL': remove_notices_all,
     }
     drivers = [
-        {'driver': 'ST', 'value': 1, 'uom': 2},
+        {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'GV1', 'value': 0, 'uom': 69},
+        {'driver': 'GV2', 'value': 0, 'uom': 69},
+        
     ]
 
 if __name__ == "__main__":
