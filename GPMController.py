@@ -66,6 +66,11 @@ class GPMController(udi_interface.Node):
             #LOGGER.info('GPM:', dataArray[0])
             self.setDriver('GV2', dataArray[1])
             #LOGGER.info('GPM Total:', dataArray[1])
+            if dataArray[0] == 0:
+                time.sleep(10)
+                self.setDriver('ST', 0)
+            else:
+                self.setDriver('ST', 1)
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -88,9 +93,6 @@ class GPMController(udi_interface.Node):
 
         if self.ip == default_ip:
             self.Notices['auth'] = 'Please set proper ip address in configuration page'
-            self.setDriver('ST', 0)
-        else:
-            self.setDriver('ST', 1)
 
     def query(self, command=None):
         nodes = self.poly.getNodes()
