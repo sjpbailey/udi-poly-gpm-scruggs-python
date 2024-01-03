@@ -67,9 +67,11 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV2', dataArray[1])
             #LOGGER.info('GPM Total:', dataArray[1])
             self.setDriver('GV3', float(dataArray[2]))
-            #LOGGER.info('GPM:', dataArray[0])
-            self.setDriver('GV4', dataArray[3])
-            #LOGGER.info('GPM Total:', dataArray[1])
+            
+            if dataArray[3] == 1:
+                self.setDriver('GV4', 1)
+            if dataArray[3] == 0:
+                self.setDriver('GV4', 0)
             
             if dataArray[0] == 0:
                 time.sleep(10)
