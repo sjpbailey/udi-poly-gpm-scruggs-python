@@ -7,6 +7,9 @@ CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
 CMD-ctl-SET_DM-NAME = Set Logger Level
 ST-ctl-GV1-NAME = GPM
 ST-ctl-GV2-NAME = GPM Total
+ST-ctl-GV3-NAME = PSI
+ST-ctl-GV4-NAME = Level
+
 ST-ctl-ST-NAME = Online
 
 

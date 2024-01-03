@@ -66,6 +66,11 @@ class GPMController(udi_interface.Node):
             #LOGGER.info('GPM:', dataArray[0])
             self.setDriver('GV2', dataArray[1])
             #LOGGER.info('GPM Total:', dataArray[1])
+            self.setDriver('GV3', dataArray[2])
+            #LOGGER.info('GPM:', dataArray[0])
+            self.setDriver('GV4', dataArray[3])
+            #LOGGER.info('GPM Total:', dataArray[1])
+            
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
@@ -123,9 +128,11 @@ class GPMController(udi_interface.Node):
         'REMOVE_NOTICES_ALL': remove_notices_all,
     }
     drivers = [
-        {'driver': 'ST', 'value': 0, 'uom': 2},
-        {'driver': 'GV1', 'value': 0, 'uom': 69},
-        {'driver': 'GV2', 'value': 0, 'uom': 69},
+        {'driver': 'ST', 'value': 0, 'uom': 2, 'name': "Online"},
+        {'driver': 'GV1', 'value': 0, 'uom': 69, 'name': "GPM"},
+        {'driver': 'GV2', 'value': 0, 'uom': 69, 'name': "GPM Total"},
+        {'driver': 'GV3', 'value': 0, 'uom': 52, 'name': "PSI"},
+        {'driver': 'GV4', 'value': 0, 'uom': 2, 'name': "Level"},
         
     ]
 

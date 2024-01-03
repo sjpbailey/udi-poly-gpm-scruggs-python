@@ -8,6 +8,8 @@
             <!--st id="CC" editor="CC1" /-->
             <st id="GV1" editor="GPM" />
             <st id="GV2" editor="GPM" />
+            <st id="GV3" editor="PSI" />
+            <st id="GV4" editor="bool" />
             <!--st id="TPW" editor="KWH" />
             <st id="GV22" editor="RAWVAL" />
             <st id="GV23" editor="RAWVAL" />
