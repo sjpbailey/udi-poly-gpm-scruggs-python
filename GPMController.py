@@ -132,7 +132,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV1', 'value': 0, 'uom': 69, 'name': "GPM"},
         {'driver': 'GV2', 'value': 0, 'uom': 69, 'name': "GPM Total"},
         {'driver': 'GV3', 'value': 0, 'uom': 52, 'name': "PSI"},
-        {'driver': 'GV4', 'value': 0, 'uom': 2, 'name': "Level"},
+        {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level"},
         
     ]
 

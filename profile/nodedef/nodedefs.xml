@@ -9,16 +9,7 @@
             <st id="GV1" editor="GPM" />
             <st id="GV2" editor="GPM" />
             <st id="GV3" editor="PSI" />
-            <st id="GV4" editor="bool" />
-            <!--st id="TPW" editor="KWH" />
-            <st id="GV22" editor="RAWVAL" />
-            <st id="GV23" editor="RAWVAL" />
-            <st id="GV2" editor="KWH" />
-            <st id="GV24" editor="RAWVAL" />
-            <st id="GV25" editor="RAWVAL" />
-            <st id="GV3" editor="KWH" />
-            <st id="GV26" editor="RAWVAL" />
-            <st id="GV27" editor="RAWVAL" /-->
+            <st id="GV4" editor="LVL" />
 	</sts>
         <cmds>
             <sends />

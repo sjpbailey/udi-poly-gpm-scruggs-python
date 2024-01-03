@@ -9,35 +9,8 @@ ST-ctl-GV1-NAME = GPM
 ST-ctl-GV2-NAME = GPM Total
 ST-ctl-GV3-NAME = PSI
 ST-ctl-GV4-NAME = Level
-
 ST-ctl-ST-NAME = Online
 
-
-# Debug/Logger Modes
-CDM-9 = Debug + Modules
-CDM-10 = Debug
-CDM-20 = Info
-CDM-30 = Warning
-CDM-40 = Error
-CDM-50 = Critical
-
-
-
-#CMD-ctl-DISCOVER-NAME = Re-Discover
-#CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
-#ST-ctl-CC-NAME = Instaneous Demand kW
-#ST-ctl-GV21-NAME = -
-#ST-ctl-TPW-NAME = Kilo Watt Hours Delivered Today
-#ST-ctl-GV22-NAME = -
-#ST-ctl-GV23-NAME = -
-#ST-ctl-GV2-NAME = Kilo Watt Hours Delivered Previous Day
-#ST-ctl-GV24-NAME = -
-#ST-ctl-GV25-NAME = -
-
-#ST-ctl-GV26-NAME = -
-#ST-ctl-GV27-NAME = -
-#ST-ctl-GV3-NAME = Kilo Watt Hours Delivered Sum Total#
-
-
-
+LVL-0 = Low
+LVL-1 = High
 
