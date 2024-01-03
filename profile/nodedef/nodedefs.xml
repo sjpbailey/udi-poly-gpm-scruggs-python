@@ -4,12 +4,11 @@
     <nodeDef id="controller" nls="ctl">
         <editors />
         <sts>
-            <st id="ST" editor="bool" />
-            <!--st id="CC" editor="CC1" /-->
             <st id="GV1" editor="GPM" />
             <st id="GV2" editor="GPM" />
             <st id="GV3" editor="PSI" />
             <st id="GV4" editor="LVL" />
+            <st id="ST" editor="bool" />
 	</sts>
         <cmds>
             <sends />
