@@ -9,9 +9,9 @@ ST-ctl-GV1-NAME = GPM
 ST-ctl-GV2-NAME = GPM Total
 ST-ctl-GV3-NAME = PSI
 ST-ctl-GV4-NAME = Low Level
-ST-ctl-GV4-NAME = High Level
+ST-ctl-GV5-NAME = High Level
 ST-ctl-ST-NAME = Online
 
-LVL-0 = Low
-LVL-1 = High
+LVL-0 = Open
+LVL-1 = Close
 
