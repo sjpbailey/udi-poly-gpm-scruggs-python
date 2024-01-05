@@ -80,10 +80,11 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV5', 0)
             
             low = 'GV4'
+            LOGGER.info(low)
             high = 'GV5' 
-            
+            LOGGER.info(high)
             # Normal Level    
-            if low == 1 and high != 1:
+            if low == 1 and high == 0:
                 self.setDriver('GV6', 0)
             # Overflow    
             elif low and high == 1:
