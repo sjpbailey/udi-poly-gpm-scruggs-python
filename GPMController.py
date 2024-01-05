@@ -78,7 +78,7 @@ class GPMController(udi_interface.Node):
             low = dataArray[3]
             high = dataArray[4]
             # Overflow    
-            if low and high == 1:
+            if low == 1:
                 self.setDriver('GV6', 1)
             # Low Level
             if low and high == 0:
