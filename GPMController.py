@@ -64,15 +64,17 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
             self.setDriver('GV3', float(dataArray[2])) # PSI
-            self.setDriver('GV4', dataArray[3]) # Low Level
-            self.setDriver('GV5', dataArray[4]) # High Level
+            #self.setDriver('GV4', dataArray[3]) # Low Level
+            #self.setDriver('GV5', dataArray[4]) # High Level
             
+            # Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
             if dataArray[0] > 1:
                 self.setDriver('ST', 1)
             
+            ### Pool Level Low and High
             # Level Low
             if dataArray[2] == 1:
                 self.setDriver('GV4', 1)
@@ -84,14 +86,16 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV5', 1)
             if dataArray[3] == 0:
                 self.setDriver('GV5', 0)
+            
+            ### Pool Level Status
             # Normal Level    
-            if dataArray[3] == 1 and dataArray[4] == 0:
+            if 'GV4' == 1 and 'GV5' == 0:
                 self.setDriver('GV6', 0)
                 # Overflow    
-            elif dataArray[3] == 1 and dataArray[4] == 1:
+            elif 'GV4' == 1 and 'GV5' == 1:
                 self.setDriver('GV6', 1)
                 # Low Level
-            elif dataArray[3] == 1 and dataArray[4] == 0:
+            elif 'GV4' == 1 and 'GV5' == 0:
                 self.setDriver('GV6', 2)
             
             
