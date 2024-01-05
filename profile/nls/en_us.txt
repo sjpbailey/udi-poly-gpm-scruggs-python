@@ -16,8 +16,8 @@ ST-ctl-ST-NAME = Online
 LVL-0 = Open
 LVL-1 = Close
 
-LVLA-0 = Normal
-LVLA-1 = Low
-LVLA-2 = Overflow
+LEL-0 = Normal
+LEL-1 = Low
+LEL-2 = Overflow
 
 
