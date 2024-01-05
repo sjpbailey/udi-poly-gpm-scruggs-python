@@ -77,17 +77,16 @@ class GPMController(udi_interface.Node):
             high = dataArray[4]
             
             # Overflow    
-            if low and high == 1:
+            if low ==1 and high == 1:
                 LOGGER.info("Overflow")
                 self.setDriver('GV6', 2)
             # Low Level
-            if low and high == 0:
+            if low == 0 and high == 0:
                 LOGGER.info("Low")
                 self.setDriver('GV6', 1)
-            #else:
-            #    self.setDriver('GV6', 0)
-            #    LOGGER.info("Normal")
-        return
+            else:
+                self.setDriver('GV6', 0)
+                LOGGER.info("Normal")
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -146,7 +145,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV3', 'value': 0, 'uom': 52, 'name': "PSI"},
         {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level Low"},
         {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level High"},
-        {'driver': 'GV6', 'value': 2, 'uom': 25, 'name': "Level Status"},
+        {'driver': 'GV6', 'value': "GV6", 'uom': 25, 'name': "Level Status"},
         
     ]
 
