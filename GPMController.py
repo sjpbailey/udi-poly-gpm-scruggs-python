@@ -86,7 +86,7 @@ class GPMController(udi_interface.Node):
             if dataArray[3] == 0 and dataArray[4] == 0:
                 self.setDriver('GV6', 2)
             
-            LOGGER.info('GV4')    
+            LOGGER.info(dataArray[3])    
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
