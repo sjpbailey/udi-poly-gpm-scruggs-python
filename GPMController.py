@@ -71,7 +71,7 @@ class GPMController(udi_interface.Node):
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
-            if dataArray[0] >= 1:
+            if dataArray[0] != 0:
                 self.setDriver('ST', 1)
             
             ### Pool Level Low and High
