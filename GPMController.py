@@ -50,7 +50,7 @@ class GPMController(udi_interface.Node):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         # Bind the socket to the port
-        host, port =  self.ip, 10000   #'192.168.1.122', 10000 #self.ip, 10000      #'192.168.1.18', 10000
+        host, port =  self.ip, 10000
         server_address = (host, port)
 
         print(f'Starting UDP server on {host} port {port}')
@@ -67,6 +67,12 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             
+            if dataArray[0] == 0:
+                time.sleep(10)
+                self.setDriver('ST', 0)
+            if dataArray[0] > 1:
+                self.setDriver('ST', 1)
+            
             # Level Low
             if dataArray[2] == 1:
                 self.setDriver('GV4', 1)
@@ -81,18 +87,14 @@ class GPMController(udi_interface.Node):
             # Normal Level    
             if dataArray[3] == 1 and dataArray[4] == 0:
                 self.setDriver('GV6', 0)
-            # Overflow    
+                # Overflow    
             elif dataArray[3] == 1 and dataArray[4] == 1:
                 self.setDriver('GV6', 1)
-            # Low Level
+                # Low Level
             elif dataArray[3] == 1 and dataArray[4] == 0:
                 self.setDriver('GV6', 2)
             
-            if dataArray[0] == 0:
-                time.sleep(10)
-                self.setDriver('ST', 0)
-            else:
-                self.setDriver('ST', 1)
+            
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -151,7 +153,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV3', 'value': 0, 'uom': 52, 'name': "PSI"},
         {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level Low"},
         {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level High"},
-        {'driver': 'GV6', 'value': 1, 'uom': 25, 'name': "Level Status"},
+        {'driver': 'GV6', 'value': 0, 'uom': 25, 'name': "Level Status"},
         
     ]
 
