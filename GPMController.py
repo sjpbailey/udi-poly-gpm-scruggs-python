@@ -79,10 +79,10 @@ class GPMController(udi_interface.Node):
             high = dataArray[4]
             # Overflow    
             if low and high == 1:
-                self.setDriver('GV6', 2)
+                self.setDriver('GV6', 1)
             # Low Level
             if low and high == 0:
-                self.setDriver('GV6', 1)  
+                self.setDriver('GV6', 0)  
         return
 
     def delete(self):
