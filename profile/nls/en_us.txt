@@ -13,8 +13,13 @@ ST-ctl-GV5-NAME = High Level
 ST-ctl-GV6-NAME = Level Status
 ST-ctl-ST-NAME = Online
 
-LVL-0 = Open
-LVL-1 = Close
+LVL-0 = Low Level
+LVL-1 = Normal
+
+LVH-0 = Normal
+LVH-1 = HigH
+
+
 
 LEL-0 = Normal
 LEL-1 = Low
