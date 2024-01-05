@@ -67,7 +67,6 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             
-            
             # Level Low
             if dataArray[2] == 1:
                 self.setDriver('GV4', 1)
@@ -80,14 +79,17 @@ class GPMController(udi_interface.Node):
             if dataArray[3] == 0:
                 self.setDriver('GV5', 0)
             
+            low = 'GV4'
+            high = 'GV5' 
+            
             # Normal Level    
-            if 'GV4' == 1 and 'GV5' != 1:
+            if low == 1 and high != 1:
                 self.setDriver('GV6', 0)
             # Overflow    
-            elif 'GV4' and 'GV5' == 1:
+            elif low and high == 1:
                 self.setDriver('GV6', 1)
             # Low Level
-            elif 'GV4' and 'GV5' == 0:
+            elif low and high == 0:
                 self.setDriver('GV6', 2)
             
             if dataArray[0] == 0:
