@@ -92,10 +92,10 @@ class GPMController(udi_interface.Node):
             if 'GV4' == 1 and 'GV5' == 0:
                 self.setDriver('GV6', 0)
                 # Overflow    
-            elif 'GV4' == 1 and 'GV5' == 1:
+            if 'GV4' == 1 and 'GV5' == 1:
                 self.setDriver('GV6', 1)
                 # Low Level
-            elif 'GV4' == 1 and 'GV5' == 0:
+            if 'GV4' == 1 and 'GV5' == 0:
                 self.setDriver('GV6', 2)
             
             
