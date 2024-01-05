@@ -82,10 +82,8 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV6', 2)
             # Low Level
             if low and high == 0:
-                self.setDriver('GV6', 1)
-            
-            LOGGER.info(low)
-            LOGGER.info(high)    
+                self.setDriver('GV6', 1)  
+        return
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
