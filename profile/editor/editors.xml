@@ -9,7 +9,7 @@
     </editor>
 
     <editor id="LVH">
-        <range uom="25" subset="0,1" nls="LVL"/>
+        <range uom="25" subset="0,1" nls="LVH"/>
     </editor>
 
     <editor id="LEL">
