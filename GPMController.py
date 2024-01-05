@@ -88,7 +88,7 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV6', 1)
             # Low Level
             if dataArray[2] == 0 and dataArray[3] == 0:
-                self.setDriver('GV6', 3)
+                self.setDriver('GV6', 2)
                 
             if dataArray[0] == 0:
                 time.sleep(10)
