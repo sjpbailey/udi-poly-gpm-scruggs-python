@@ -75,29 +75,26 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV4', 0)
                 
             # Level High
-            
             if dataArray[3] == 1:
                 self.setDriver('GV5', 1)
             if dataArray[3] == 0:
                 self.setDriver('GV5', 0)
             
             # Normal Level    
-        if 'GV4' == 1 and 'GV5' == 0:
-            self.setDriver('GV6', 0)
+            if 'GV4' == 1 and 'GV5' == 0:
+                self.setDriver('GV6', 0)
             # Overflow    
-        elif 'GV4' == 1 and 'GV5' == 1:
-            self.setDriver('GV6', 1)
+            elif 'GV4' == 1 and 'GV5' == 1:
+                self.setDriver('GV6', 1)
             # Low Level
-        elif 'GV4' == 0 and 'GV5' == 0:
-            self.setDriver('GV6', 2)
-        else:
-            pass
+            elif 'GV4' == 0 and 'GV5' == 0:
+                self.setDriver('GV6', 2)
             
-        if dataArray[0] == 0:
-            time.sleep(10)
-            self.setDriver('ST', 0)
-        else:
-            self.setDriver('ST', 1)
+            if dataArray[0] == 0:
+                time.sleep(10)
+                self.setDriver('ST', 0)
+            else:
+                self.setDriver('ST', 1)
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
