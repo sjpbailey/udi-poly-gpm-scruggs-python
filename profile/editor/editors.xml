@@ -9,7 +9,7 @@
     </editor>
 
     <editor id="LVLA">
-        <range uom="25" subset="0,1,2" nls="LVL"/>
+        <range uom="25" subset="0,1,2" nls="LVLA"/>
     </editor>
 
     <editor id="I_DEBUG">
