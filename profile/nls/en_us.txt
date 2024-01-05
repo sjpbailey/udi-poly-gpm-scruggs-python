@@ -17,7 +17,7 @@ LVL-0 = Open
 LVL-1 = Close
 
 LVLA-0 = Normal
-LVLA-1 = Overflow
-LVLA-2 = Low
+LVLA-1 = Low
+LVLA-2 = Overflow
 
 
