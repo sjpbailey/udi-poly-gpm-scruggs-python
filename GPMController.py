@@ -74,7 +74,7 @@ class GPMController(udi_interface.Node):
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
             
-            ### Pool Level Low and High
+            """### Pool Level Low and High
             # Level Low
             if 'GV4' == 1:
                 self.setDriver('GV4', 1)
@@ -85,7 +85,7 @@ class GPMController(udi_interface.Node):
             if 'GV5' == 1:
                 self.setDriver('GV5', 1)
             if 'GV5' == 0:
-                self.setDriver('GV5', 0)
+                self.setDriver('GV5', 0)"""
             
             ### Pool Level Status
             # Normal Level    
