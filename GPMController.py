@@ -66,11 +66,12 @@ class GPMController(udi_interface.Node):
             #LOGGER.info('GPM:', dataArray[0])
             self.setDriver('GV2', dataArray[1])
             #LOGGER.info('GPM Total:', dataArray[1])
+            
             # Level Low
             self.setDriver('GV3', float(dataArray[2]))
-            if dataArray[3] == 1:
+            if dataArray[2] == 1:
                 self.setDriver('GV4', 1)
-            if dataArray[3] == 0:
+            if dataArray[2] == 0:
                 self.setDriver('GV4', 0)
                 
             # Level High
@@ -79,7 +80,16 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV5', 1)
             if dataArray[3] == 0:
                 self.setDriver('GV5', 0)
-            
+            # Normal Level    
+            if dataArray[2] == 1 and dataArray[3] == 0:
+                self.setDriver('GV6', 0)
+            # Overflow    
+            if dataArray[2] == 1 and dataArray[3] == 1:
+                self.setDriver('GV6', 1)
+            # Low Level
+            if dataArray[2] == 0 and dataArray[3] == 0:
+                self.setDriver('GV6', 3)
+                
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
@@ -141,8 +151,9 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV1', 'value': 0, 'uom': 69, 'name': "GPM"},
         {'driver': 'GV2', 'value': 0, 'uom': 69, 'name': "GPM Total"},
         {'driver': 'GV3', 'value': 0, 'uom': 52, 'name': "PSI"},
-        {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level"},
-        {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level"},
+        {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level Low"},
+        {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level High"},
+        {'driver': 'GV6', 'value': 0, 'uom': 25, 'name': "Level Status"},
         
     ]
 

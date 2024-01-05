@@ -8,6 +8,10 @@
         <range uom="25" subset="0,1" nls="LVL"/>
     </editor>
 
+    <editor id="LVLA">
+        <range uom="25" subset="0,1,2" nls="LVL"/>
+    </editor>
+
     <editor id="I_DEBUG">
         <range uom="25" subset="9,10,20,30,40,50" nls="CDM"/>
     </editor>
