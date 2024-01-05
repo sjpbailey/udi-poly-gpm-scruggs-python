@@ -84,8 +84,8 @@ class GPMController(udi_interface.Node):
             # Low Level
             if low and high == 0:
                 self.setDriver('GV6', 1)
-            else:
-                self.setDriver('GV6', 0)
+            #else:
+            #    self.setDriver('GV6', 0)
         return
 
     def delete(self):
