@@ -80,12 +80,15 @@ class GPMController(udi_interface.Node):
             
             # Overflow    
             if low and high == 1:
+                LOGGER.info("Overflow")
                 self.setDriver('GV6', 2)
             # Low Level
             if low and high == 0:
+                LOGGER.info("Low")
                 self.setDriver('GV6', 1)
             #else:
             #    self.setDriver('GV6', 0)
+            #    LOGGER.info("Normal")
         return
 
     def delete(self):
