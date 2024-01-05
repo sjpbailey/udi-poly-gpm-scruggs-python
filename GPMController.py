@@ -61,21 +61,21 @@ class GPMController(udi_interface.Node):
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
-            #print('GPM:', dataArray[0], 'GPM Total:', dataArray[1])
-            self.setDriver('GV1', dataArray[0])
-            #LOGGER.info('GPM:', dataArray[0])
-            self.setDriver('GV2', dataArray[1])
-            #LOGGER.info('GPM Total:', dataArray[1])
+            self.setDriver('GV1', dataArray[0]) # GPM
+            self.setDriver('GV2', dataArray[1]) # GPM Total
+            self.setDriver('GV3', float(dataArray[2])) # PSI
+            self.setDriver('GV4', dataArray[3]) # Low Level
+            self.setDriver('GV5', dataArray[4]) # High Level
+            
             
             # Level Low
-            self.setDriver('GV3', float(dataArray[2]))
             if dataArray[2] == 1:
                 self.setDriver('GV4', 1)
             if dataArray[2] == 0:
                 self.setDriver('GV4', 0)
                 
             # Level High
-            self.setDriver('GV3', float(dataArray[3]))
+            
             if dataArray[3] == 1:
                 self.setDriver('GV5', 1)
             if dataArray[3] == 0:
