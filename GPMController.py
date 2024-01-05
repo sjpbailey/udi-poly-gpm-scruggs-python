@@ -75,7 +75,7 @@ class GPMController(udi_interface.Node):
                 self.setDriver('GV4', 0)
                 
             # Level High
-            self.setDriver('GV3', float(dataArray[2]))
+            self.setDriver('GV3', float(dataArray[3]))
             if dataArray[3] == 1:
                 self.setDriver('GV5', 1)
             if dataArray[3] == 0:
