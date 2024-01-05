@@ -75,8 +75,9 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 1)
                 
             ### Pool Level Status
+            
             # Normal Level    
-            if dataArray[3] == 1 and dataArray[4] == 0:
+            if 'GV4' == 1 and dataArray[4] == 0:
                 self.setDriver('GV6', 0)
                 # Overflow    
             if dataArray[3] == 1 and dataArray[4] == 1:
@@ -85,7 +86,7 @@ class GPMController(udi_interface.Node):
             if dataArray[3] == 0 and dataArray[4] == 0:
                 self.setDriver('GV6', 2)
             
-            
+            LOGGER.info('GV4')    
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
