@@ -5,16 +5,14 @@ import socket
 from struct import unpack
 import sys
 import time
-import urllib3
-import requests
+#import urllib3
+#import requests
 import xml.etree.ElementTree as ET
 
 LOGGER = udi_interface.LOGGER
 LOG_HANDLER = udi_interface.LOG_HANDLER
 Custom = udi_interface.Custom
 
-
-LOG_HANDLER.set_log_format('%(asctime)s %(threadName)-10s %(name)-18s %(levelname)-8s %(module)s:%(funcName)s: %(message)s')
 
 class GPMController(udi_interface.Node):
     def __init__(self, polyglot, primary, address, name):
