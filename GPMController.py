@@ -73,15 +73,13 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 1)
                 
             ### Pool Level Status
-            low = dataArray[3]
-            high = dataArray[4]
             
             # Overflow    
-            if low ==1 and high == 1:
+            if 'GV4' == 1 and 'GV5' == 1:
                 LOGGER.info("Overflow")
                 self.setDriver('GV6', 2)
             # Low Level
-            if low == 0 and high == 0:
+            if 'GV4' == 0 and 'GV5' == 0:
                 LOGGER.info("Low")
                 self.setDriver('GV6', 1)
             #else:
