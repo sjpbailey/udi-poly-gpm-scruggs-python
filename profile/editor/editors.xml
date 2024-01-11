@@ -27,6 +27,10 @@
     <editor id="GPM">
         <range uom="69" min="-0" max="1000000" prec="1"/>
     </editor>
+
+    <editor id="PHP">
+        <range uom="56" min="-0" max="1000000" prec="1"/>
+    </editor>
     
     <editor id="WATT">
         <range uom="73" min="-1000000" max="1000000" prec="1"/>

@@ -9,7 +9,7 @@
             <st id="GV3" editor="PSI" />
             <st id="GV4" editor="LVL" />
             <st id="GV5" editor="LVH" />
-            <!--st id="GV6" editor="LEL" /-->
+            <st id="GV6" editor="PHP" />
             <st id="ST" editor="bool" />
 	</sts>
         <cmds>
