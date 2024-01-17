@@ -21,7 +21,7 @@
     </editor>
 
     <editor id="TMP">
-        <range uom="17"  min="-200" max="200" step="1" prec="1"/>
+        <range uom="17"  min="-100000" max="100000" step="1" prec="1"/>
     </editor>
 
     <editor id="MIL">
