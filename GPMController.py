@@ -43,6 +43,21 @@ class GPMController(udi_interface.Node):
         self.poly.updateProfile()
         self.discover()
 
+        # Analog Output 1
+    def calValue(self, command):
+        output_ao1 = 'speed'
+        speed = float(command.get('value'))
+
+        def set_speed(self, command):
+            speed = float(command.get('value'))
+        if speed < -1 or speed > 11:
+            LOGGER.error('Invalid volts selection {}'.format(speed))
+        else:
+            self.bc.analogOutput(1, speed)
+            self.setDriver('GV9', speed)
+            LOGGER.info('Calibration Value = ' + str(speed) + 'INT')
+
+
     def discover(self, *args, **kwargs):
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -55,13 +70,14 @@ class GPMController(udi_interface.Node):
         sock.bind(server_address)
 
         while True:
+            calit ='GV9'
             # Wait for message
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', float(dataArray[2])+float('GV9')) # PSI
+            self.setDriver('GV3', float(dataArray[2])+calit) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
@@ -90,22 +106,6 @@ class GPMController(udi_interface.Node):
             #    self.setDriver('GV6', 0)
             #    LOGGER.info("Normal")"""
                 
-            
-        # Analog Output 1
-    def calValue(self, command):
-        output_ao1 = 'speed'
-        speed = float(command.get('value'))
-
-        def set_speed(self, command):
-            speed = float(command.get('value'))
-        if speed < -1 or speed > 11:
-            LOGGER.error('Invalid volts selection {}'.format(speed))
-        else:
-            self.bc.analogOutput(1, speed)
-            self.setDriver('GV9', float(speed))
-            LOGGER.info('Calibration Value = ' + str(speed) + 'INT')
-
-
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
 
