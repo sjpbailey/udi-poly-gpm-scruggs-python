@@ -54,7 +54,7 @@ class GPMController(udi_interface.Node):
             LOGGER.error('Invalid selection {}'.format(speed))
         else:
             self.setDriver('GV9', speed)
-            LOGGER.info('Analog Output 1 = ' + str(speed) + 'INT')
+            LOGGER.info('Calibration = ' + str(speed) + 'INT')
 
     def discover(self, *args, **kwargs):
         # Create a UDP socket
@@ -78,8 +78,8 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
-            self.setDriver('GV7', dataArray[6]) # High Level
-            self.setDriver('GV8', dataArray[7]) # pH
+            self.setDriver('GV7', dataArray[6]) # orp
+            self.setDriver('GV8', dataArray[7]) # Temperature
             
             # Online and Reading GPM
             if dataArray[0] == 0:
