@@ -56,7 +56,6 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed)
             LOGGER.info('Calibration Value = ' + str(speed) + 'INT')
 
-
     def discover(self, *args, **kwargs):
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -75,7 +74,7 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', (dataArray[2]+'GV9')) # PSI
+            self.setDriver('GV3', (dataArray[2]+int('GV9'))) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
@@ -88,22 +87,7 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 0)
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
-        
-                        
-            """### Pool Level Status
-            
-            # Overflow    
-            if 'GV4' == 1 and 'GV5' == 1:
-                LOGGER.info("Overflow")
-                self.setDriver('GV6', 2)
-            # Low Level
-            if 'GV4' == 0 and 'GV5' == 0:
-                LOGGER.info("Low")
-                self.setDriver('GV6', 1)
-            #else:
-            #    self.setDriver('GV6', 0)
-            #    LOGGER.info("Normal")"""
-                
+
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
 
