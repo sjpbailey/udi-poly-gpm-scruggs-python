@@ -50,7 +50,7 @@ class GPMController(udi_interface.Node):
 
         def set_speed(self, command):
             speed = float(command.get('value'))
-        if speed < -10 or speed > 11:
+        if speed < -100 or speed > 110:
             LOGGER.error('Invalid selection {}'.format(speed))
         else:
             self.setDriver('GV9', speed/10)
