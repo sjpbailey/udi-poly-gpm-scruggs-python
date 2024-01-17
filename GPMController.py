@@ -53,7 +53,7 @@ class GPMController(udi_interface.Node):
         if speed < -10 or speed > 11:
             LOGGER.error('Invalid volts selection {}'.format(speed))
         else:
-            self.setDriver('GV9', speed+'GV3')
+            self.setDriver('GV9', speed+float('GV3'))
             LOGGER.info('Calibration Value = ' + str(speed) + 'INT')
 
     def discover(self, *args, **kwargs):
