@@ -53,7 +53,7 @@ class GPMController(udi_interface.Node):
         if speed < -10 or speed > 11:
             LOGGER.error('Invalid selection {}'.format(speed))
         else:
-            self.setDriver('GV9', speed)
+            self.setDriver('GV9', speed/100)
             LOGGER.info('Calibration = ' + str(speed) + 'INT')
 
     def discover(self, *args, **kwargs):
