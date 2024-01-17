@@ -5,6 +5,7 @@ ND-controller-ICON = Irrigation
 CMD-ctl-QUERY-NAME = Query
 CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
 CMD-ctl-SET_DM-NAME = Set Logger Level
+CMD-ctl-GV9-NAME = Cali PSI
 ST-ctl-GV1-NAME = GPM
 ST-ctl-GV2-NAME = GPM Total
 ST-ctl-GV3-NAME = PSI
@@ -13,7 +14,6 @@ ST-ctl-GV5-NAME = High Level
 ST-ctl-GV6-NAME = pH
 ST-ctl-GV7-NAME = ORP
 ST-ctl-GV8-NAME = Temperature
-ST-ctl-GV9-NAME = Calibration PSI
 ST-ctl-ST-NAME = Online
 
 LVL-0 = Low Level
@@ -22,12 +22,9 @@ LVL-1 = Normal
 LVH-0 = Normal
 LVH-1 = High Level
 
-
-
 LEL-0 = Normal
 LEL-1 = Low
 LEL-2 = Overflow
-
 
 CALPSI-0 = 0 
 CALPSI-1 = 1
