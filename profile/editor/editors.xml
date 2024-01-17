@@ -65,7 +65,7 @@
     </editor>
 
     <editor id="CALIT">
-        <range uom="70" min="-10" max="10" nls="CALPSI"/>
+        <range uom="70" min="-.10" max=".10" nls="CALPSI"/>
     </editor>
 
 </editors>
