@@ -24,6 +24,7 @@
             
             <cmd id="CALPSI">
                     <p id="" editor="CALPSI" init="GV9" />
+            </cmd>
             </accepts>
         </cmds>
     </nodeDef>
