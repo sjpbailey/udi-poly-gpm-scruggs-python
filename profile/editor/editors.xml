@@ -64,4 +64,8 @@
         <range uom="56" min="10" max="100000" step="1" prec="1"/>
     </editor>
 
+    <editor id="CALPSI">
+        <range uom="70" min="-10" max="10" nls="CALPSI"/>
+    </editor>
+
 </editors>

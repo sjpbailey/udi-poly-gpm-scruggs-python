@@ -61,7 +61,7 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', float(dataArray[2])+.2) # PSI
+            self.setDriver('GV3', float(dataArray[2])+'GV9') # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
@@ -74,7 +74,8 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 0)
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
-                
+        
+                        
             """### Pool Level Status
             
             # Overflow    
@@ -88,6 +89,22 @@ class GPMController(udi_interface.Node):
             #else:
             #    self.setDriver('GV6', 0)
             #    LOGGER.info("Normal")"""
+                
+            
+        # Analog Output 1
+    def calValue(self, command):
+        output_ao1 = 'speed'
+        speed = float(command.get('value'))
+
+        def set_speed(self, command):
+            speed = float(command.get('value'))
+        if speed < -1 or speed > 11:
+            LOGGER.error('Invalid volts selection {}'.format(speed))
+        else:
+            self.bc.analogOutput(1, speed)
+            self.setDriver('GV9', speed)
+            LOGGER.info('Calibration Value = ' + str(speed) + 'INT')
+
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -138,6 +155,7 @@ class GPMController(udi_interface.Node):
         'QUERY': query,
         'DISCOVER': discover,
         'REMOVE_NOTICES_ALL': remove_notices_all,
+        'SPEED': calValue,
     }
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2, 'name': "Online"},
@@ -149,6 +167,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV6', 'value': 0, 'uom': 56, 'name': "pH"},
         {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
         {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
+        {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration"},
     ]
 
 if __name__ == "__main__":
