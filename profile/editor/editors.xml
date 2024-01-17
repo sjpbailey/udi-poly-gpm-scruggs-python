@@ -16,8 +16,12 @@
         <range uom="25" subset="0,1,2" nls="LEL"/>
     </editor>
 
+    <editor id="TEMPERATURE">
+        <range uom="17" min="-50" max="150" step="1" prec="1" />
+    </editor>
+
     <editor id="TMP">
-        <range uom="17"  min="-1000000" max="1000000" prec="1"/>
+        <range uom="17"  min="-200" max="200" step="1" prec="1"/>
     </editor>
 
     <editor id="MIL">
