@@ -11,6 +11,9 @@ ST-ctl-GV3-NAME = PSI
 ST-ctl-GV4-NAME = Low Level
 ST-ctl-GV5-NAME = High Level
 ST-ctl-GV6-NAME = pH
+ST-ctl-GV7-NAME = ORP
+ST-ctl-GV8-NAME = Temperature
+
 ST-ctl-ST-NAME = Online
 
 LVL-0 = Low Level

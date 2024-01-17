@@ -145,7 +145,8 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV4', 'value': 0, 'uom': 25, 'name': "Level Low"},
         {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level High"},
         {'driver': 'GV6', 'value': 0, 'uom': 56, 'name': "pH"},
-        
+        {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
+        {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
     ]
 
 if __name__ == "__main__":

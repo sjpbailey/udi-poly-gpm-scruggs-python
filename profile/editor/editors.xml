@@ -16,6 +16,14 @@
         <range uom="25" subset="0,1,2" nls="LEL"/>
     </editor>
 
+    <editor id="TMP">
+        <range uom="17"  min="-1000000" max="1000000" prec="1"/>
+    </editor>
+
+    <editor id="MIL">
+        <range uom="43"  min="-1000000" max="1000000" prec="1"/>
+    </editor>
+
     <editor id="I_DEBUG">
         <range uom="25" subset="9,10,20,30,40,50" nls="CDM"/>
     </editor>
