@@ -29,9 +29,6 @@ LEL-1 = Low
 LEL-2 = Overflow
 
 
-
-
-
 CALPSI-0 = 0 
 CALPSI-1 = 1
 CALPSI-2 = 2
