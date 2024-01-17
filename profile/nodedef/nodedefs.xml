@@ -22,7 +22,7 @@
             <!--<cmd id="DISCOVER" />-->
             <cmd id="REMOVE_NOTICES_ALL" />
             
-            <cmd id="CALPSI">
+            <cmd id="CALGO">
                     <p id="" editor="CALIT" init="GV9" />
             </cmd>
             </accepts>
