@@ -50,11 +50,13 @@ class GPMController(udi_interface.Node):
 
         def set_speed(self, command):
             speed = float(command.get('value'))
-        if speed < -10 or speed > 11:
+            self.setDriver('GV9', speed)
+            LOGGER.info('Calibration = ' + str(speed) + 'INT')
+        """if speed < -10 or speed > 11:
             LOGGER.error('Invalid selection {}'.format(speed))
         else:
             self.setDriver('GV9', speed)
-            LOGGER.info('Calibration = ' + str(speed) + 'INT')
+            LOGGER.info('Calibration = ' + str(speed) + 'INT')"""
 
     def discover(self, *args, **kwargs):
         # Create a UDP socket
