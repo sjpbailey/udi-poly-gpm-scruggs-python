@@ -128,7 +128,7 @@ void setup() {
 
 void loop()  // void loo[() and void loop(void) are the same
 {
-  if((millis() - oldTime) > 3000)    // Only process counters once per second
+  if((millis() - oldTime) > 6000)    // Only process counters once per second
   { 
     // Disable the interrupt while calculating flow rate and sending the value to the host
     detachInterrupt(sensorInterrupt);
