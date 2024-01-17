@@ -43,14 +43,14 @@ class GPMController(udi_interface.Node):
         self.poly.updateProfile()
         self.discover()
 
-        # Analog Output 1
+        # Calibration
     def calValue(self, command):
         output_ao1 = 'speed'
         speed = float(command.get('value'))
 
         def set_speed(self, command):
             speed = float(command.get('value'))
-        if speed < -1 or speed > 11:
+        if speed < -10 or speed > 11:
             LOGGER.error('Invalid volts selection {}'.format(speed))
         else:
             self.setDriver('GV9', speed)
