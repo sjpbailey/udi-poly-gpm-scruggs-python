@@ -154,7 +154,7 @@ class GPMController(udi_interface.Node):
         'QUERY': query,
         'DISCOVER': discover,
         'REMOVE_NOTICES_ALL': remove_notices_all,
-        'SPEED': calValue,
+        'CALPSI': calValue,
     }
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2, 'name': "Online"},
