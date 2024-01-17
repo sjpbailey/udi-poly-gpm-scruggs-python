@@ -12,7 +12,7 @@
             <st id="GV6" editor="PHP" />
             <st id="GV7" editor="MIL" />
             <st id="GV8" editor="TMP" />
-            <st id="GV9" editor="CALPSI" />
+            <st id="GV9" editor="CALIT" />
             <st id="ST" editor="bool" />
 	</sts>
         <cmds>
@@ -23,7 +23,7 @@
             <cmd id="REMOVE_NOTICES_ALL" />
             
             <cmd id="CALPSI">
-                    <p id="" editor="CALPSI" init="GV9" />
+                    <p id="" editor="CALIT" init="GV9" />
             </cmd>
             </accepts>
         </cmds>
