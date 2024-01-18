@@ -106,7 +106,7 @@ class GPMController(udi_interface.Node):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         # Bind the socket to the port
-        host, port =  self.ip, 10000
+        host, port =  self.ip, 10001
         server_address = (host, port)
 
         print(f'Starting UDP server on {host} port {port}')
