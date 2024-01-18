@@ -104,10 +104,10 @@ class GPMController(udi_interface.Node):
             #    LOGGER.info(i)
             
             gv91 = self.getDriver('GV9')
-            gv92 = [float(x) for x in gv91.split()]
+            #gv92 = [float(x) for x in gv91.split()]
             LOGGER.info("Input from Calibration, Passed GV9 input")
-            LOGGER.info(gv92)
-            LOGGER.info(type(gv92))
+            LOGGER.info(gv91)
+            LOGGER.info(type(gv91))
             
             #LOGGER.info(float(spd1))
             #psi1 = [float(x) for x in spd1.split()]
