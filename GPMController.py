@@ -68,7 +68,7 @@ class GPMController(udi_interface.Node):
         return speed
 
     def discover(self, *args, **kwargs):        
-        speed = self.get.Driver('GV9')
+        speed = self.poly.getNode('GV9')
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
