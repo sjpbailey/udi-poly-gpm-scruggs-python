@@ -89,17 +89,20 @@ class GPMController(udi_interface.Node):
             psigo = dataArray[2]
             LOGGER.info("SPEED!!3")
             LOGGER.info(psigo)
-            LOGGER.info(type(psigo))
-            LOGGER.info(float(psigo))
-            for i in psigo:
-                LOGGER.info(i)
+            #LOGGER.info(type(psigo))
+            #LOGGER.info(float(psigo))
+            psi0 = [float(x) for x in psigo.split()]
+            LOGGER.info(psi0)
+            #for i in psigo:
+            #    LOGGER.info(i)
+            
             spd1 = self.getDriver('GV9')
             LOGGER.info("SPEED!!4")
             LOGGER.info(spd1)
-            LOGGER.info(type(spd1))
-            LOGGER.info(float(spd1))
-            floats = [float(x) for x in spd1.split()]
-            LOGGER.info(floats)
+            #LOGGER.info(type(spd1))
+            #LOGGER.info(float(spd1))
+            psi1 = [float(x) for x in spd1.split()]
+            LOGGER.info(psi1)
             #for i in spd1:
             #    LOGGER.info(i)
             #spd2 = psigo + spd1
