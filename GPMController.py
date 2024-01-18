@@ -58,15 +58,17 @@ class GPMController(udi_interface.Node):
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
             res = 'GV9'
         self.speed = speed
+        LOGGER.info("SPEED")
+        LOGGER.info(self.speed)
         return self.speed
+    
         """for i in res:    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
             LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
             LOGGER.info('GV9')"""
         
     def discover(self, *args, **kwargs):
         speed = self.speed
-        LOGGER.info("SPEED")
-        LOGGER.info(speed)
+        
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
