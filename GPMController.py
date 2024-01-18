@@ -118,7 +118,7 @@ class GPMController(udi_interface.Node):
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
-            self.setDriver('GV3', dataArray[2] + speed) # PSI
+            self.setDriver('GV3', 1000) #dataArray[2] + speed) # PSI
 
 
     def delete(self):
