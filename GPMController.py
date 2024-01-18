@@ -68,6 +68,7 @@ class GPMController(udi_interface.Node):
 
     def discover(self, *args, **kwargs):        
         speed = self.poly.getNode('GV9')
+        LOGGER.info(speed)
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -85,7 +86,7 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', dataArray[2] + speed) # PSI
+            self.setDriver('GV3', dataArray[2]) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
