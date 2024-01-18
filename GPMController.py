@@ -32,17 +32,16 @@ class GPMController(udi_interface.Node):
         self.user = None
         self.password = None
         self.ip = None
-        speed = speed
 
     def parameterHandler(self, params):
         self.Parameters.load(params)
         LOGGER.debug('Loading parameters now')
         self.check_params()    
 
-    def start(self, speed):
+    def start(self):
         self.poly.setCustomParamsDoc()
         self.poly.updateProfile()
-        self.discover(speed)
+        self.discover()
 
         # Calibration
     def calValue(self, command):
