@@ -57,7 +57,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
             res = 'GV9'
-        self.speed = speed
+        self.speed = speed/10
         LOGGER.info("SPEED")
         LOGGER.info(self.speed)
         return self.speed
@@ -86,7 +86,7 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', dataArray[2]) # PSI
+            self.setDriver('GV3', dataArray[2]+ speed) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
