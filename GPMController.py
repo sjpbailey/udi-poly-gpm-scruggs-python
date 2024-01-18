@@ -56,15 +56,18 @@ class GPMController(udi_interface.Node):
         else:
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
-
-        speed = speed/10
+        
+        spd1 = self.poly.getNode('GV9')
+        LOGGER.info("SPEED!!")
+        LOGGER.info(spd1)
+        """speed = speed/10
         LOGGER.info("SPEED")
         LOGGER.info(self.speed)
         #speed = 'GV3'
         LOGGER.info("SPEED1")
         LOGGER.info(speed)
         self.setDriver('GV10', speed)
-        return speed
+        return speed"""
 
     def discover(self, *args, **kwargs):        
         speed = self.poly.getNode('GV9')
