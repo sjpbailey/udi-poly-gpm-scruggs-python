@@ -46,7 +46,7 @@ class GPMController(udi_interface.Node):
         
     def calValue(self, command):
         # Calibration
-        speed = None
+        speed = speed
         output_ao1 = 'speed'
         speed = float(command.get('value'))
 
@@ -64,11 +64,11 @@ class GPMController(udi_interface.Node):
         #speed = 'GV3'
         LOGGER.info("SPEED1")
         LOGGER.info(speed)
-        self.setDriver('GV10', speed + 100)
+        self.setDriver('GV10', speed)
         return speed
 
     def discover(self, *args, **kwargs):        
-        speed = None
+        speed = self.get.Driver('GV9')
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
