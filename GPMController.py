@@ -62,7 +62,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info('GV9')"""
         
     def discover(self, *args, **kwargs):
-        speed = None
+        speed = 'GV3'
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
