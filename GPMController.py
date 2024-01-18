@@ -99,7 +99,7 @@ class GPMController(udi_interface.Node):
 
             psi0 = [float(x) for x in psiin.split()]
             LOGGER.info("Converted PSI input to float, to be added")
-            LOGGER.info(float(psi0))
+            LOGGER.info(float(list(psi0)))
             LOGGER.info(type(psi0))
             #for i in psigo:
             #    LOGGER.info(i)
