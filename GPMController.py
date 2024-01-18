@@ -96,7 +96,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info(psigo)
             psigo1 = spd1
             LOGGER.info(psigo1)
-            LOGGER.info(sum(int(psigo)+float(psigo1)))
+            LOGGER.info(sum(float(psigo)+int(psigo1)))
             self.setDriver('GV3', psigo1) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
