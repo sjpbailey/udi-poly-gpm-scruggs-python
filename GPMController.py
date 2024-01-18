@@ -32,6 +32,7 @@ class GPMController(udi_interface.Node):
         self.user = None
         self.password = None
         self.ip = None
+        self.speed = None
 
     def parameterHandler(self, params):
         self.Parameters.load(params)
