@@ -98,7 +98,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info(spd1)
             LOGGER.info(type(spd1))
             LOGGER.info(float(spd1))
-            floats = map(float, spd1.split())
+            floats = [float(x) for x in spd1.split()]
             LOGGER.info(floats)
             #for i in spd1:
             #    LOGGER.info(i)
