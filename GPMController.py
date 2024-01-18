@@ -96,7 +96,7 @@ class GPMController(udi_interface.Node):
         #speed = 'GV3'
         LOGGER.info("SPEED1")
         LOGGER.info(speed)
-        self.setDriver('GV10', speed + 'GV3')
+        self.setDriver('GV10', speed + 100)
         #return
 
     def delete(self):
