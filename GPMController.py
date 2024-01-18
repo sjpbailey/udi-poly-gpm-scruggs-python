@@ -44,7 +44,39 @@ class GPMController(udi_interface.Node):
         self.poly.updateProfile()
         self.discover()
 
-        # Calibration
+    def discover(self, *args, **kwargs):        
+        # Create a UDP socket
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+        # Bind the socket to the port
+        host, port =  self.ip, 10000
+        server_address = (host, port)
+
+        print(f'Starting UDP server on {host} port {port}')
+        sock.bind(server_address)
+
+        while True:
+            # Wait for message
+            message, address = sock.recvfrom(4096)
+            message = message.decode('utf-8')
+            dataArray=message.split(' , ')
+            self.setDriver('GV1', dataArray[0]) # GPM
+            self.setDriver('GV2', dataArray[1]) # GPM Total
+            self.setDriver('GV3', dataArray[2]) # PSI
+            self.setDriver('GV4', dataArray[3]) # Low Level
+            self.setDriver('GV5', dataArray[4]) # High Level
+            self.setDriver('GV6', dataArray[5]) # pH
+            self.setDriver('GV7', dataArray[6]) # orp
+            self.setDriver('GV8', dataArray[7]) # Temperature
+            
+            # Online and Reading GPM
+            if dataArray[0] == 0:
+                time.sleep(10)
+                self.setDriver('ST', 0)
+            if dataArray[0] != 0:
+                self.setDriver('ST', 1)
+                
+            # Calibration
     def calValue(self, command):
         output_ao1 = 'speed'
         speed = float(command.get('value'))
@@ -66,37 +98,6 @@ class GPMController(udi_interface.Node):
             LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
             LOGGER.info('GV9')"""
         
-    def discover(self, *args, **kwargs):        
-        # Create a UDP socket
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-        # Bind the socket to the port
-        host, port =  self.ip, 10000
-        server_address = (host, port)
-
-        print(f'Starting UDP server on {host} port {port}')
-        sock.bind(server_address)
-
-        while True:
-            # Wait for message
-            message, address = sock.recvfrom(4096)
-            message = message.decode('utf-8')
-            dataArray=message.split(' , ')
-            self.setDriver('GV1', dataArray[0]) # GPM
-            self.setDriver('GV2', dataArray[1]) # GPM Total
-            self.setDriver('GV3', dataArray[2])+ .8 # PSI
-            self.setDriver('GV4', dataArray[3]) # Low Level
-            self.setDriver('GV5', dataArray[4]) # High Level
-            self.setDriver('GV6', dataArray[5]) # pH
-            self.setDriver('GV7', dataArray[6]) # orp
-            self.setDriver('GV8', dataArray[7]) # Temperature
-            
-            # Online and Reading GPM
-            if dataArray[0] == 0:
-                time.sleep(10)
-                self.setDriver('ST', 0)
-            if dataArray[0] != 0:
-                self.setDriver('ST', 1)
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
