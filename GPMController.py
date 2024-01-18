@@ -108,7 +108,7 @@ class GPMController(udi_interface.Node):
             #psi1 = [float(x) for x in spd1.split()]
             #LOGGER.info(spd1)
             
-            psitotal = sum(psi0 + spd1)
+            psitotal = spd1
             LOGGER.info("Added Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             
