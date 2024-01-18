@@ -55,8 +55,10 @@ class GPMController(udi_interface.Node):
         else:
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed) + 'INT')
+            
+        for i in 'GV9':    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
+            LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
 
-        
     def discover(self, *args, **kwargs):
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -88,9 +90,6 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 0)
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
-
-            res = [int(i) for i in 'GV3'.split() if i.isdigit()]    
-            LOGGER.info(res)#'Calibration = ' + str(speed) + 'INT')
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
