@@ -103,11 +103,13 @@ class GPMController(udi_interface.Node):
             #LOGGER.info(float(spd1))
             psi1 = [float(x) for x in spd1.split()]
             LOGGER.info(psi1)
+            psitotal = psi0 = psi1
+            LOGGER.info(psitotal)
             #for i in spd1:
             #    LOGGER.info(i)
             #spd2 = psigo + spd1
             #LOGGER.info(sum(float(psigo)+int(psigo1)))
-            self.setDriver('GV3', spd1) # PSI
+            self.setDriver('GV3', psitotal) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
