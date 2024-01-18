@@ -57,7 +57,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
         
-            spd1 = self.report_driver('GV9')
+            spd1 = self.get_driver('GV9')
             LOGGER.info("SPEED!!")
             LOGGER.info(spd1)
         """speed = speed/10
@@ -70,8 +70,8 @@ class GPMController(udi_interface.Node):
         return speed"""
 
     def discover(self, *args, **kwargs):        
-        speed = self.poly.getNode('GV9')
-        LOGGER.info(speed)
+        #speed = self.get_driver('GV9', 'value')
+        #LOGGER.info(speed)
         # Create a UDP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -126,7 +126,7 @@ class GPMController(udi_interface.Node):
             self.Notices['auth'] = 'Please set proper ip address in configuration page'
 
     def query(self, command=None):
-        nodes = self.poly.getNode('GV9')
+        nodes = self.poly.getNodes()
         for node in nodes:
             nodes[node].reportDrivers()
 
