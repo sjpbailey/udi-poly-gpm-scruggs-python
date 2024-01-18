@@ -74,7 +74,7 @@ class GPMController(udi_interface.Node):
         #LOGGER.info(speed)
         # Create a UDP socket
         spd1 = self.getDriver('GV9')
-        LOGGER.info("SPEED!!")
+        LOGGER.info("SPEED!!2")
         LOGGER.info(spd1)
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -93,8 +93,10 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
             psigo = dataArray[2]
+            LOGGER.info("SPEED!!3")
             LOGGER.info(psigo)
             psigo1 = spd1
+            LOGGER.info("SPEED!!4")
             LOGGER.info(psigo1)
             #LOGGER.info(sum(float(psigo)+int(psigo1)))
             self.setDriver('GV3', psigo1) # PSI
