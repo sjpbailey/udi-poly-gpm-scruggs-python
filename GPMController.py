@@ -96,30 +96,8 @@ class GPMController(udi_interface.Node):
         #speed = 'GV3'
         LOGGER.info("SPEED1")
         LOGGER.info(speed)
-        self.setDriver('GV10', speed)
+        self.setDriver('GV10', speed + 'GV3')
         #return
-
-        """for i in res:    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
-            LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
-            LOGGER.info('GV9')"""
-
-        """# Create a UDP socket
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-        # Bind the socket to the port
-        host, port =  self.ip, 10001
-        server_address = (host, port)
-
-        print(f'Starting UDP server on {host} port {port}')
-        sock.bind(server_address)
-
-        while True:
-            # Wait for message
-            message, address = sock.recvfrom(4096)
-            message = message.decode('utf-8')
-            dataArray=message.split(' , ')
-            self.setDriver('GV3', 1000) #dataArray[2] + speed) # PSI"""
-
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
