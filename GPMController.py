@@ -92,8 +92,9 @@ class GPMController(udi_interface.Node):
         self.speed = speed/10
         LOGGER.info("SPEED")
         LOGGER.info(self.speed)
+        self.setDriver('GV10', sum('GV3' + 'GV9'))
         return self.speed
-    
+        
         """for i in res:    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
             LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
             LOGGER.info('GV9')"""
@@ -161,6 +162,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
         {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
         {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration"},
+        {'driver': 'GV10', 'value': 0, 'uom': 70, 'name': "New PSI?"},
     ]
 
 if __name__ == "__main__":
