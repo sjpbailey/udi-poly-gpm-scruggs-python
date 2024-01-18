@@ -90,7 +90,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(psigo)
             
-            #LOGGER.info(type(psigo))
+            LOGGER.info(type(psigo))
             #LOGGER.info(float(psigo))
             psi0 = [float(x) for x in psigo.split()]
             LOGGER.info("Converted PSI input to float, to be added")
@@ -103,7 +103,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info("Input from Calibration, Passed GV9 input")
             LOGGER.info(spd1)
             
-            #LOGGER.info(type(spd1))
+            LOGGER.info(type(spd1))
             #LOGGER.info(float(spd1))
             #psi1 = [float(x) for x in spd1.split()]
             #LOGGER.info(spd1)
