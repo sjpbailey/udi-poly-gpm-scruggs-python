@@ -9,6 +9,7 @@
         "Destaination",
         "DGRAM",
         "LVLA",
-        "psigo"
+        "psigo",
+        "psitotal"
     ]
 }
