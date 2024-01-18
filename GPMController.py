@@ -46,7 +46,6 @@ class GPMController(udi_interface.Node):
         
     def calValue(self, command):
         # Calibration
-        speed = speed
         output_ao1 = 'speed'
         speed = float(command.get('value'))
 
