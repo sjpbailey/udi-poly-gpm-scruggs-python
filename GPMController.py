@@ -85,42 +85,43 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
+            self.setDriver('GV4', dataArray[3]) # Low Level
+            self.setDriver('GV5', dataArray[4]) # High Level
+            self.setDriver('GV6', dataArray[5]) # pH
+            self.setDriver('GV7', dataArray[6]) # orp
+            self.setDriver('GV8', dataArray[7]) # Temperature
             
-            psigo = dataArray[2]
+            psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
-            LOGGER.info(psigo)            
-            LOGGER.info(type(psigo))
+            LOGGER.info(psiin)            
+            LOGGER.info(type(psiin))
+            LOGGER.info('/n')
 
-            psi0 = [float(x) for x in psigo.split()]
+            psi0 = [float(x) for x in psiin.split()]
             LOGGER.info("Converted PSI input to float, to be added")
             LOGGER.info(psi0)
             LOGGER.info(type(psi0))
             #for i in psigo:
             #    LOGGER.info(i)
             
-            spd1 = self.getDriver('GV9')
+            gv91 = self.getDriver('GV9')
             LOGGER.info("Input from Calibration, Passed GV9 input")
-            LOGGER.info(spd1)
-            LOGGER.info(type(spd1))
+            LOGGER.info(gv91)
+            LOGGER.info(type(gv91))
             
             #LOGGER.info(float(spd1))
             #psi1 = [float(x) for x in spd1.split()]
             #LOGGER.info(spd1)
             
-            psitotal = spd1 
+            psitotal = gv91 
             LOGGER.info("Added Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
-            
+            LOGGER.info(type(psitotal))
+            self.setDriver('GV3', psitotal) # PSI
             #for i in spd1:
             #    LOGGER.info(i)
             #spd2 = psigo + spd1
             #LOGGER.info(sum(float(psigo)+int(psigo1)))
-            self.setDriver('GV3', psitotal) # PSI
-            self.setDriver('GV4', dataArray[3]) # Low Level
-            self.setDriver('GV5', dataArray[4]) # High Level
-            self.setDriver('GV6', dataArray[5]) # pH
-            self.setDriver('GV7', dataArray[6]) # orp
-            self.setDriver('GV8', dataArray[7]) # Temperature
             
             # Online and Reading GPM
             if dataArray[0] == 0:
