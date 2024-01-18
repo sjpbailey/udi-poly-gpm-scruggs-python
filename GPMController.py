@@ -90,7 +90,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info("SPEED!!3")
             LOGGER.info(psigo)
             LOGGER.info(type(psigo))
-            for i in psigo:
+            for i in float(psigo):
                 LOGGER.info(i)
             spd1 = self.getDriver('GV9')
             LOGGER.info("SPEED!!4")
