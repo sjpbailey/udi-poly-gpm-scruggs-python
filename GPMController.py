@@ -56,8 +56,9 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed) + 'INT')
             
-        for i in 'GV9':    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
-            LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
+            for i in 'GV9':    #res = [int(i) for i in 'GV9'.split() if i.isdigit()]    
+                LOGGER.info(i)#'Calibration = ' + str(speed) + 'INT')
+                LOGGER.info('GV9')
 
     def discover(self, *args, **kwargs):
         # Create a UDP socket
