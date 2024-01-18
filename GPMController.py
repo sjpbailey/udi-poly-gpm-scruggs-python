@@ -90,15 +90,17 @@ class GPMController(udi_interface.Node):
             LOGGER.info("SPEED!!3")
             LOGGER.info(psigo)
             LOGGER.info(type(psigo))
+            LOGGER.info(float(psigo))
             for i in psigo:
                 LOGGER.info(i)
             spd1 = self.getDriver('GV9')
             LOGGER.info("SPEED!!4")
             LOGGER.info(spd1)
             LOGGER.info(type(spd1))
+            LOGGER.info(float(spd1))
             for i in spd1:
                 LOGGER.info(i)
-            
+            spd2 = psigo + spd1
             #LOGGER.info(sum(float(psigo)+int(psigo1)))
             self.setDriver('GV3', spd1) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
