@@ -126,7 +126,7 @@ class GPMController(udi_interface.Node):
             self.Notices['auth'] = 'Please set proper ip address in configuration page'
 
     def query(self, command=None):
-        nodes = self.poly.getNodes('GV9')
+        nodes = self.poly.getNode('GV9')
         for node in nodes:
             nodes[node].reportDrivers()
 
