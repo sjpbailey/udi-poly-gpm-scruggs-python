@@ -55,8 +55,6 @@ class GPMController(udi_interface.Node):
         else:
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed) + 'INT')
-        res = [int(i) for i in 'GV3'.split() if i.isdigit()]    
-        LOGGER.info(res)#'Calibration = ' + str(speed) + 'INT')
 
         
     def discover(self, *args, **kwargs):
@@ -90,6 +88,9 @@ class GPMController(udi_interface.Node):
                 self.setDriver('ST', 0)
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
+
+            res = [int(i) for i in 'GV3'.split() if i.isdigit()]    
+            LOGGER.info(res)#'Calibration = ' + str(speed) + 'INT')
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
