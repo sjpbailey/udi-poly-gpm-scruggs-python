@@ -57,7 +57,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
         
-            spd1 = self.reportDriver('GV9', 'force')
+            spd1 = self.reportDriver('GV9', 'value')
             LOGGER.info("SPEED!!")
             LOGGER.info(spd1)
         """speed = speed/10
