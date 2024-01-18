@@ -92,9 +92,9 @@ class GPMController(udi_interface.Node):
             dataArray=message.split(' , ')
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
-            psigo = float(dataArray[2])
+            psigo = dataArray[2]
             LOGGER.info(psigo)
-            psigo1 = float(spd1)
+            psigo1 = spd1
             LOGGER.info(psigo1)
             
             self.setDriver('GV3', psigo1) # PSI
