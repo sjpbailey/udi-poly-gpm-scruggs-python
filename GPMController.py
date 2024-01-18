@@ -57,7 +57,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
         
-        spd1 = self.getNodes(speed)
+        spd1 = self.report_driver('GV9')
         LOGGER.info("SPEED!!")
         LOGGER.info(spd1)
         """speed = speed/10
@@ -126,7 +126,7 @@ class GPMController(udi_interface.Node):
             self.Notices['auth'] = 'Please set proper ip address in configuration page'
 
     def query(self, command=None):
-        nodes = self.poly.getNodes()
+        nodes = self.poly.getNodes('GV9')
         for node in nodes:
             nodes[node].reportDrivers()
 
