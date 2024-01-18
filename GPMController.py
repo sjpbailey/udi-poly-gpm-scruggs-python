@@ -90,13 +90,13 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', speed/10)
             LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
             res = 'GV9'
-        speed1 = speed/10
+        speed = speed/10
         LOGGER.info("SPEED")
         LOGGER.info(self.speed)
-        speed1 = 'GV3'
+        #speed = 'GV3'
         LOGGER.info("SPEED1")
-        LOGGER.info(speed1)
-        self.setDriver('GV10', speed1)
+        LOGGER.info(speed)
+        self.setDriver('GV10', speed)
         pass
         #return self.speed
         
