@@ -119,7 +119,7 @@ class GPMController(udi_interface.Node):
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
             self.setDriver('GV3', dataArray[2] + speed) # PSI
-            return
+
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
