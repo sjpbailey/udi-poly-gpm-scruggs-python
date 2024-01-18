@@ -70,17 +70,12 @@ class GPMController(udi_interface.Node):
         return speed"""
 
     def discover(self, *args, **kwargs):        
-        #speed = self.get_driver('GV9', 'value')
-        #LOGGER.info(speed)
-        # Create a UDP socket
-    
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         # Bind the socket to the port
         host, port =  self.ip, 10000
         server_address = (host, port)
-
-        print(f'Starting UDP server on {host} port {port}')
+        LOGGER.info(f'Starting UDP server on {host} port {port}')
         sock.bind(server_address)
 
         while True:
@@ -95,11 +90,10 @@ class GPMController(udi_interface.Node):
             LOGGER.info("SPEED!!3")
             LOGGER.info(psigo)
             spd1 = self.getDriver('GV9')
-            psigo1 = spd1
             LOGGER.info("SPEED!!4")
-            LOGGER.info(psigo1)
+            LOGGER.info(spd1)
             #LOGGER.info(sum(float(psigo)+int(psigo1)))
-            self.setDriver('GV3', psigo1) # PSI
+            self.setDriver('GV3', spd1) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
