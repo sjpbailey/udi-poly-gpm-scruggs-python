@@ -6,6 +6,7 @@
         <sts>
             <st id="GV1" editor="GPM" />
             <st id="GV2" editor="GPM" />
+            <st id="GV12" editor="RAWVAL" />
             <st id="GV4" editor="LVL" />
             <st id="GV5" editor="LVH" />
             <st id="GV6" editor="PHP" />
