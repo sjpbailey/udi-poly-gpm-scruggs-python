@@ -107,7 +107,7 @@ class GPMController(udi_interface.Node):
             # Calibration added to PSI
             ### Need to get this as a calibration so need proper math to do negative numbers
             psitotal = float(gv91) - float(str(psiin))
-            LOGGER.info("Added Calibration and PSI Output to GV3")
+            LOGGER.info("Subtracted Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             LOGGER.info(type(psitotal))
             self.setDriver('GV3', float(psitotal)) # PSI Driver
