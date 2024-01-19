@@ -91,19 +91,22 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV7', dataArray[6]) # orp
             self.setDriver('GV8', dataArray[7]) # Temperature
             
+            # PSI input to Float
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
             LOGGER.info(type(float(str(psiin))))
 
-            
+            # Calibration input from AC
             gv91 = self.getDriver('GV9') # Calibration Input
             #gv92 = [float(x) for x in gv91.split()]
             #LOGGER.info("Input from Calibration, Passed GV9 input")
             #LOGGER.info(gv91)
             #LOGGER.info(type(gv91))
             
-            psitotal = float(gv91) + float(str(psiin))
+            # Calibration added to PSI
+            ### Need to get this as a calibration so need proper math to do negative numbers
+            psitotal = float(gv91) - float(str(psiin))
             LOGGER.info("Added Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             LOGGER.info(type(psitotal))
