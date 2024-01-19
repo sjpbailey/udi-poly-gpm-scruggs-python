@@ -88,22 +88,20 @@ class GPMController(udi_interface.Node):
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
             LOGGER.info(type(float(str(psiin))))
-
+            self.setDriver('GV3', float(psiin)) # PSI Driver
             # Calibration input from AC
             gv91 = self.getDriver('GV9') # Calibration Input
-            #gv92 = [float(x) for x in gv91.split()]
-            #LOGGER.info("Input from Calibration, Passed GV9 input")
-            #LOGGER.info(gv91)
-            #LOGGER.info(type(gv91))
             
             # Calibration added to PSI
-            ### Need to get this as a calibration so need proper math to do negative numbers
-            psitotal = float(gv91) - float(str(psiin))
-            LOGGER.info("Subtracted Calibration and PSI Output to GV3")
-            LOGGER.info(psitotal)
-            LOGGER.info(type(psitotal))
-            self.setDriver('GV3', float(psiin)) # PSI Driver
-            self.setDriver('GV10', float(psitotal)) # PSI Driver
+            if float(psiin) == 0:
+                psitotal = float(gv91)
+            else:
+                psitotal = float(gv91) - float(str(psiin))
+                LOGGER.info("Subtracted Calibration and PSI Output to GV3")
+                LOGGER.info(psitotal)
+                LOGGER.info(type(psitotal))
+            
+                self.setDriver('GV10', float(psitotal)) # PSI Driver
 
             # Online and Reading GPM
             if dataArray[0] == 0:
