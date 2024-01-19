@@ -93,13 +93,15 @@ class GPMController(udi_interface.Node):
             
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
-            LOGGER.info(float(psiin))            
+            LOGGER.info(float(str(psiin)))            
             LOGGER.info(type(psiin))
 
-            psi0 = [float(x) for x in psiin.split()]
-            LOGGER.info("Converted PSI input to float, to be added")
-            LOGGER.info(psi0)
-            LOGGER.info(type(psi0))
+            #psi0 = [float(x) for x in psiin.split()]
+            #LOGGER.info("Converted PSI to a List")
+            #LOGGER.info(type(psi0))
+            #LOGGER.info("Converted PSI input to float, to be added")
+            #LOGGER.info(psi0)
+            #LOGGER.info(type(psi0))
             #psi0 = float(psi0)
             #LOGGER.info("New Floated PSI ?")
             #LOGGER.info(psi0)
@@ -120,26 +122,18 @@ class GPMController(udi_interface.Node):
             #for i in psi0:
             #    LOGGER.info(i)
             
-            gv91 = self.getDriver('GV9')
+            gv91 = self.getDriver('GV9') # Calibration Input
             #gv92 = [float(x) for x in gv91.split()]
             #LOGGER.info("Input from Calibration, Passed GV9 input")
             #LOGGER.info(gv91)
             #LOGGER.info(type(gv91))
             
-            #LOGGER.info(float(spd1))
-            #psi1 = [float(x) for x in spd1.split()]
-            #LOGGER.info(spd1)
-            
             psitotal = float(gv91) 
             LOGGER.info("Added Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             LOGGER.info(type(psitotal))
-            self.setDriver('GV3', float(psitotal)) # PSI
-            #for i in spd1:
-            #    LOGGER.info(i)
-            #spd2 = psigo + spd1
-            #LOGGER.info(sum(float(psigo)+int(psigo1)))
-            
+            self.setDriver('GV3', float(psitotal)) # PSI Driver
+
             # Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)
