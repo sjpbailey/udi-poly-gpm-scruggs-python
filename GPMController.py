@@ -75,6 +75,7 @@ class GPMController(udi_interface.Node):
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
+            # Inputs from Simple Socket Server
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
             self.setDriver('GV4', dataArray[3]) # Low Level
@@ -83,15 +84,25 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV7', dataArray[6]) # orp
             self.setDriver('GV8', dataArray[7]) # Temperature
             
+            # Online and Reading GPM
+            if dataArray[0] == 0:
+                time.sleep(10)
+                self.setDriver('ST', 0)
+            if dataArray[0] != 0:
+                self.setDriver('ST', 1)
+            
             # PSI input to Float
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
             LOGGER.info(type(float(str(psiin))))
             self.setDriver('GV3', float(psiin)) # PSI Driver
+            
             # Calibration input from AC
             gv91 = self.getDriver('GV9') # Calibration Input
-            
+            LOGGER.info("Calibration Set Point")
+            LOGGER.info(gv91) 
+
             # Calibration added to PSI
             if float(psiin) == 0:
                 psitotal = float(gv91)
@@ -100,15 +111,8 @@ class GPMController(udi_interface.Node):
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
                 LOGGER.info(type(psitotal))
-            
                 self.setDriver('GV10', float(psitotal)) # PSI Driver
 
-            # Online and Reading GPM
-            if dataArray[0] == 0:
-                time.sleep(10)
-                self.setDriver('ST', 0)
-            if dataArray[0] != 0:
-                self.setDriver('ST', 1)
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
