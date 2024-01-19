@@ -100,7 +100,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info("Converted PSI input to float, to be added")
             LOGGER.info(psi0)
             LOGGER.info(type(psi0))
-            psi0 = float(psi0)
+            #psi0 = float(psi0)
             LOGGER.info("New Floated PSI ?")
             LOGGER.info(psi0)
             LOGGER.info(type(psi0))
