@@ -10,8 +10,7 @@ if __name__ == '__main__':
     
     ## IP Address to where you want to send the Data
     DestainationIP = '192.168.1.122'
-    SocketPort = 10000 
-    SocketPort = 10001
+    SocketPort = 10000
     
     ## Socket to Client where data is sent
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

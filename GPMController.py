@@ -2,12 +2,10 @@
 
 import udi_interface
 import socket
-from struct import unpack
+#from struct import unpack
 import sys
 import time
-#import urllib3
-#import requests
-import xml.etree.ElementTree as ET
+#import xml.etree.ElementTree as ET
 
 LOGGER = udi_interface.LOGGER
 LOG_HANDLER = udi_interface.LOG_HANDLER
@@ -46,9 +44,7 @@ class GPMController(udi_interface.Node):
         
     def calValue(self, command):
         # Calibration
-        #output_ao1 = 'speed'
         speed = float(command.get('value'))
-
         def set_speed(self, command):
             speed = float(command.get('value'))
         if speed < -100 or speed > 110:
@@ -63,7 +59,6 @@ class GPMController(udi_interface.Node):
 
     def discover(self, *args, **kwargs):        
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
         # Bind the socket to the port
         host, port =  self.ip, 10000
         server_address = (host, port)
@@ -71,7 +66,7 @@ class GPMController(udi_interface.Node):
         sock.bind(server_address)
 
         while True:
-            # Wait for message
+            # Wait for messages
             message, address = sock.recvfrom(4096)
             message = message.decode('utf-8')
             dataArray=message.split(' , ')
@@ -95,7 +90,6 @@ class GPMController(udi_interface.Node):
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
-            LOGGER.info(type(float(str(psiin))))
             self.setDriver('GV3', float(psiin)) # PSI Driver
             
             # Calibration input from AC
@@ -110,9 +104,7 @@ class GPMController(udi_interface.Node):
                 psitotal = float(gv91) - float(str(psiin))
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
-                LOGGER.info(type(psitotal))
                 self.setDriver('GV10', float(psitotal)) # PSI Driver
-
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
