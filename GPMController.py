@@ -60,14 +60,6 @@ class GPMController(udi_interface.Node):
             spd1 = self.getDriver('GV9')
             LOGGER.info("SPEED!!")
             LOGGER.info(spd1)
-        """speed = speed/10
-        LOGGER.info("SPEED")
-        LOGGER.info(self.speed)
-        #speed = 'GV3'
-        LOGGER.info("SPEED1")
-        LOGGER.info(speed)
-        self.setDriver('GV10', speed)
-        return speed"""
 
     def discover(self, *args, **kwargs):        
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -110,7 +102,8 @@ class GPMController(udi_interface.Node):
             LOGGER.info("Subtracted Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             LOGGER.info(type(psitotal))
-            self.setDriver('GV3', float(psitotal)) # PSI Driver
+            self.setDriver('GV3', float(psiin)) # PSI Driver
+            self.setDriver('GV10', float(psitotal)) # PSI Driver
 
             # Online and Reading GPM
             if dataArray[0] == 0:
@@ -181,7 +174,7 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
         {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
         {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration"},
-        {'driver': 'GV10', 'value': 0, 'uom': 70, 'name': "New PSI?"},
+        {'driver': 'GV10', 'value': 0, 'uom': 70, 'name': "Calibrated PSI"},
     ]
 
 if __name__ == "__main__":
