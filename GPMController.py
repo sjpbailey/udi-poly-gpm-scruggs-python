@@ -173,8 +173,8 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV6', 'value': 0, 'uom': 56, 'name': "pH"},
         {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
         {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
-        {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration"},
-        {'driver': 'GV10', 'value': 0, 'uom': 70, 'name': "Calibrated PSI"},
+        {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration SETP"},
+        {'driver': 'GV10', 'value': 0, 'uom': 52, 'name': "Calibrated PSI"},
     ]
 
 if __name__ == "__main__":

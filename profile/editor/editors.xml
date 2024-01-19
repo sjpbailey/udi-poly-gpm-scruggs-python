@@ -57,7 +57,7 @@
     </editor>
 
     <editor id="PSI">
-        <range uom="25" min="0" max="100000" prec="0" />
+        <range uom="52" min="0" max="100000" prec="0" />
     </editor>
 
     <editor id="covt">
