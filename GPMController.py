@@ -104,27 +104,27 @@ class GPMController(udi_interface.Node):
             #LOGGER.info("New Floated PSI ?")
             #LOGGER.info(psi0)
             #LOGGER.info(type(psi0))
-            LOGGER.info("List contents ?")
-            LOGGER.info(psi0[:])
-            LOGGER.info(type(psi0[:]))
+            #LOGGER.info("List contents ?")
+            #LOGGER.info(psi0[:])
+            #LOGGER.info(type(psi0[:]))
             
-            for index, item in enumerate(psi0):
-                psi0[index] = float(item)
-                LOGGER.info(index)
+            #for index, item in enumerate(psi0):
+            #    psi0[index] = float(item)
+            #    LOGGER.info(index)
             #float_list = map(float, psi0)
             #LOGGER.info('List Floated')
             #LOGGER.info(float_list)
             #LOGGER.info(type(float_list))
             #psi0 = float(psi0)
                         
-            for i in psi0:
-                LOGGER.info(i)
+            #for i in psi0:
+            #    LOGGER.info(i)
             
             gv91 = self.getDriver('GV9')
             #gv92 = [float(x) for x in gv91.split()]
-            LOGGER.info("Input from Calibration, Passed GV9 input")
-            LOGGER.info(gv91)
-            LOGGER.info(type(gv91))
+            #LOGGER.info("Input from Calibration, Passed GV9 input")
+            #LOGGER.info(gv91)
+            #LOGGER.info(type(gv91))
             
             #LOGGER.info(float(spd1))
             #psi1 = [float(x) for x in spd1.split()]
@@ -134,7 +134,7 @@ class GPMController(udi_interface.Node):
             LOGGER.info("Added Calibration and PSI Output to GV3")
             LOGGER.info(psitotal)
             LOGGER.info(type(psitotal))
-            self.setDriver('GV3', psitotal) # PSI
+            self.setDriver('GV3', float(psitotal)) # PSI
             #for i in spd1:
             #    LOGGER.info(i)
             #spd2 = psigo + spd1
