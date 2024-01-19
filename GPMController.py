@@ -101,10 +101,12 @@ class GPMController(udi_interface.Node):
             LOGGER.info(psi0)
             LOGGER.info(type(psi0))
             #psi0 = float(psi0)
-            LOGGER.info("New Floated PSI ?")
-            LOGGER.info(psi0)
-            LOGGER.info(type(psi0))
+            #LOGGER.info("New Floated PSI ?")
+            #LOGGER.info(psi0)
+            #LOGGER.info(type(psi0))
+            LOGGER.info("List contents ?")
             LOGGER.info(psi0[:])
+            LOGGER.info(type(psi0[:]))
             
             for index, item in enumerate(psi0):
                 psi0[index] = float(item)
