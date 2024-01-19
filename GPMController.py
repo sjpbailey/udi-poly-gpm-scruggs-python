@@ -94,7 +94,7 @@ class GPMController(udi_interface.Node):
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
-            LOGGER.info(type(psiin))
+            LOGGER.info(type(float(str(psiin))))
 
             
             gv91 = self.getDriver('GV9') # Calibration Input
