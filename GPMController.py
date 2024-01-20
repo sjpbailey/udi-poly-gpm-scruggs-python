@@ -99,7 +99,7 @@ class GPMController(udi_interface.Node):
             if float(psiin) == 0:
                 psitotal = float(psist)
             else:
-                psitotal = float(psist) - float(str(psiin))
+                psitotal = float(str(psiin)) - float(psist)
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
                 self.setDriver('GV10', float(psitotal)) # PSI Driver
