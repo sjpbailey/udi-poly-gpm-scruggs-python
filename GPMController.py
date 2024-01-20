@@ -40,20 +40,20 @@ class GPMController(udi_interface.Node):
         self.poly.updateProfile()
         self.discover()
         
-    def calValue(self, command):
+    def calPsi(self, command):
         # Calibration
-        speed = float(command.get('value'))
+        psi = float(command.get('value'))
         def set_speed(self, command):
             speed = float(command.get('value'))
-        if speed < -100 or speed > 110:
-            LOGGER.error('Invalid selection {}'.format(speed))
+        if psi < -100 or psi > 110:
+            LOGGER.error('Invalid selection {}'.format(psi))
         else:
-            self.setDriver('GV9', speed/10)
-            LOGGER.info('Calibration = ' + str(speed/10) + 'INT')
+            self.setDriver('GV9', psi/10)
+            LOGGER.info('Calibration = ' + str(psi/10) + 'INT')
         
-            spd1 = self.getDriver('GV9')
-            LOGGER.info("SPEED!!")
-            LOGGER.info(spd1)
+            psi1 = self.getDriver('GV9')
+            LOGGER.info("PSI Calibration From GV9")
+            LOGGER.info(psi1)
 
     def discover(self, *args, **kwargs):        
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -91,15 +91,15 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV3', float(psiin)) # PSI Driver
             
             # Calibration input from AC
-            gv91 = self.getDriver('GV9') # Calibration Input
+            psist = self.getDriver('GV9') # Calibration Input
             LOGGER.info("Calibration Set Point")
-            LOGGER.info(gv91) 
+            LOGGER.info(psist) 
 
             # Calibration added to PSI
             if float(psiin) == 0:
-                psitotal = float(gv91)
+                psitotal = float(psist)
             else:
-                psitotal = float(gv91) - float(str(psiin))
+                psitotal = float(psist) - float(str(psiin))
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
                 self.setDriver('GV10', float(psitotal)) # PSI Driver
@@ -153,7 +153,7 @@ class GPMController(udi_interface.Node):
         'QUERY': query,
         'DISCOVER': discover,
         'REMOVE_NOTICES_ALL': remove_notices_all,
-        'CALGO': calValue,
+        'CALGO': calPsi,
     }
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2, 'name': "Online"},
