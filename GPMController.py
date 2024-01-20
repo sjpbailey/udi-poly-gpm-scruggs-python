@@ -43,8 +43,8 @@ class GPMController(udi_interface.Node):
     def calPsi(self, command):
         # Calibration
         psi = float(command.get('value'))
-        def set_speed(self, command):
-            speed = float(command.get('value'))
+        def set_psi(self, command):
+            psi = float(command.get('value'))
         if psi < -100 or psi > 110:
             LOGGER.error('Invalid selection {}'.format(psi))
         else:

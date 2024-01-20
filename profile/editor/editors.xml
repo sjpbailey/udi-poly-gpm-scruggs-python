@@ -64,8 +64,12 @@
         <range uom="56" min="10" max="100000" step="1" prec="1"/>
     </editor>
 
-    <editor id="CALIT">
+    <!--editor id="CALIT">
         <range uom="70" min="-10" max="10" nls="CALPSI"/>
+    </editor-->
+
+    <editor id="CALIT">
+        <range uom="70" min="-100" max="100" step=".1" prec="1"/>
     </editor>
 
 </editors>
