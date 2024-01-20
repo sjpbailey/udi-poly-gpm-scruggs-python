@@ -48,7 +48,7 @@ class GPMController(udi_interface.Node):
         if psi < -100 or psi > 100:
             LOGGER.error('Invalid selection {}'.format(psi))
         else:
-            self.setDriver('GV9', psi/10)
+            self.setDriver('GV9', psi)
             LOGGER.info('Calibration = ' + str(psi/10) + 'INT')
         
             psi1 = self.getDriver('GV9')
