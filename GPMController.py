@@ -45,7 +45,7 @@ class GPMController(udi_interface.Node):
         psi = float(command.get('value'))
         def set_psi(self, command):
             psi = float(command.get('value'))
-        if psi < -100 or psi > 110:
+        if psi < -1000 or psi > 1000:
             LOGGER.error('Invalid selection {}'.format(psi))
         else:
             self.setDriver('GV9', psi/10)
