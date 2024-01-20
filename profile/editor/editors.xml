@@ -69,7 +69,7 @@
     </editor-->
 
     <editor id="CALIT">
-        <range uom="70" min="-100" max="100" step=".1" prec="1"/>
+        <range uom="70" min="-1000" max="1000" step=".10" prec=".1"/>
     </editor>
 
 </editors>
