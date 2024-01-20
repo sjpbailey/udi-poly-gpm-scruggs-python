@@ -2,10 +2,8 @@
 
 import udi_interface
 import socket
-#from struct import unpack
 import sys
 import time
-#import xml.etree.ElementTree as ET
 
 LOGGER = udi_interface.LOGGER
 LOG_HANDLER = udi_interface.LOG_HANDLER
