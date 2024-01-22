@@ -13,16 +13,18 @@
             <st id="GV6" editor="PHP" />
             <st id="GV7" editor="MIL" />
             <st id="GV8" editor="TMP" />
+            <st id="GV9" editor="TMP" />
+            <st id="GV10" editor="TMP" />
             <st id="GV3" editor="PSI" />
-            <st id="GV9" editor="CALIT" />
-            <st id="GV10" editor="PSI" />
+            <st id="GV15" editor="CALIT" />
+            <st id="GV16" editor="PSI" />
             <st id="ST" editor="bool" />
 	</sts>
         <cmds>
             <sends />
             <accepts>
                 <cmd id="CALGO">
-                    <p id="" editor="CALIT" init="GV9" />
+                    <p id="" editor="CALIT" init="GV15" />
                 </cmd>
 
                 <cmd id="QUERY" />

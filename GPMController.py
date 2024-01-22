@@ -48,11 +48,11 @@ class GPMController(udi_interface.Node):
         if psi < -100 or psi > 100:
             LOGGER.error('Invalid selection {}'.format(psi))
         else:
-            self.setDriver('GV9', psi)
+            self.setDriver('GV15', psi)
             LOGGER.info('Calibration = ' + str(psi/10) + 'INT')
         
-            psi1 = self.getDriver('GV9')
-            LOGGER.info("PSI Calibration From GV9")
+            psi1 = self.getDriver('GV15')
+            LOGGER.info("PSI Calibration From GV15")
             LOGGER.info(psi1)
 
     def discover(self, *args, **kwargs):        
@@ -75,8 +75,9 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
             self.setDriver('GV7', dataArray[6]) # orp
-            self.setDriver('GV8', dataArray[7]) # Temperature
-            
+            self.setDriver('GV8', dataArray[7]) # Temperature1
+            self.setDriver('GV9', dataArray[8]) # Temperature2
+            self.setDriver('GV10', dataArray[9]) # Temperature3
             # Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)
@@ -91,7 +92,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV3', float(psiin)) # PSI Driver
             
             # Calibration input from AC
-            psist = self.getDriver('GV9') # Calibration Input
+            psist = self.getDriver('GV15') # Calibration Input
             LOGGER.info("Calibration Set Point")
             LOGGER.info(psist) 
 
@@ -102,7 +103,7 @@ class GPMController(udi_interface.Node):
                 psitotal = float(psist) - float(str(psiin))
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
-                self.setDriver('GV10', float(psitotal)) # PSI Driver
+                self.setDriver('GV16', float(psitotal)) # PSI Driver
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -164,9 +165,11 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV5', 'value': 0, 'uom': 25, 'name': "Level High"},
         {'driver': 'GV6', 'value': 0, 'uom': 56, 'name': "pH"},
         {'driver': 'GV7', 'value': 0, 'uom': 43, 'name': "ORP"},
-        {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature"},
-        {'driver': 'GV9', 'value': 0, 'uom': 70, 'name': "Calibration SETP"},
-        {'driver': 'GV10', 'value': 0, 'uom': 52, 'name': "Calibrated PSI"},
+        {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature1"},
+        {'driver': 'GV9', 'value': 0, 'uom': 17, 'name': "Temperature2"},
+        {'driver': 'GV10', 'value': 0, 'uom': 17, 'name': "Temperature3"},
+        {'driver': 'GV15', 'value': 0, 'uom': 70, 'name': "Calibration SETP"},
+        {'driver': 'GV16', 'value': 0, 'uom': 52, 'name': "Calibrated PSI"},
     ]
 
 if __name__ == "__main__":
