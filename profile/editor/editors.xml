@@ -20,7 +20,7 @@
         <range uom="17" min="-50" max="150" step="1" prec="1" />
     </editor>
 
-    <editor id="TMP">
+    <editor id="TEMP">
         <range uom="17"  min="-100000" max="100000" step="1" prec="1"/>
     </editor>
 
