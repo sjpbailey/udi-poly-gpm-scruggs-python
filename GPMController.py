@@ -71,6 +71,7 @@ class GPMController(udi_interface.Node):
             # Inputs from Simple Socket Server
             self.setDriver('GV1', dataArray[0]) # GPM
             self.setDriver('GV2', dataArray[1]) # GPM Total
+            self.setDriver('GV3', dataArray[2]) # PSI
             self.setDriver('GV4', dataArray[3]) # Low Level
             self.setDriver('GV5', dataArray[4]) # High Level
             self.setDriver('GV6', dataArray[5]) # pH
@@ -79,7 +80,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', dataArray[8]) # Temperature2
             self.setDriver('GV10', dataArray[9]) # Temperature3
             
-            # Online and Reading GPM
+            """# Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
@@ -104,7 +105,7 @@ class GPMController(udi_interface.Node):
                 psitotal = float(psist) - float(str(psiin))
                 LOGGER.info("Subtracted Calibration and PSI Output to GV3")
                 LOGGER.info(psitotal)
-                self.setDriver('GV16', float(psitotal)) # PSI Driver
+                self.setDriver('GV16', float(psitotal)) # PSI Driver"""
 
     def delete(self):
         LOGGER.info('Deleting GPM Meter')
@@ -169,8 +170,8 @@ class GPMController(udi_interface.Node):
         {'driver': 'GV8', 'value': 0, 'uom': 17, 'name': "Temperature1"},
         {'driver': 'GV9', 'value': 0, 'uom': 17, 'name': "Temperature2"},
         {'driver': 'GV10', 'value': 0, 'uom': 17, 'name': "Temperature3"},
-        {'driver': 'GV15', 'value': 0, 'uom': 70, 'name': "Calibration SETP"},
-        {'driver': 'GV16', 'value': 0, 'uom': 52, 'name': "Calibrated PSI"},
+        #{'driver': 'GV15', 'value': 0, 'uom': 70, 'name': "Calibration SETP"},
+        #{'driver': 'GV16', 'value': 0, 'uom': 52, 'name': "Calibrated PSI"},
     ]
 
 if __name__ == "__main__":
