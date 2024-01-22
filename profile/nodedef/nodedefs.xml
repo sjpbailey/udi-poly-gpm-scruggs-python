@@ -24,9 +24,9 @@
         <cmds>
             <sends />
             <accepts>
-                <cmd id="CALGO">
+                <!--cmd id="CALGO">
                     <p id="" editor="CALIT" init="GV15" />
-                </cmd>
+                </cmd-->
 
                 <cmd id="QUERY" />
                 <!--<cmd id="DISCOVER" />-->
