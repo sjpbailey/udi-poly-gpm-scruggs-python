@@ -80,14 +80,14 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV9', dataArray[8]) # Temperature2
             self.setDriver('GV10', dataArray[9]) # Temperature3
             
-            """# Online and Reading GPM
+            # Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)
                 self.setDriver('ST', 0)
             if dataArray[0] != 0:
                 self.setDriver('ST', 1)
             
-            # PSI input to Float
+            """# PSI input to Float
             psiin = dataArray[2]
             LOGGER.info("PSI input from Socket Server")
             LOGGER.info(float(str(psiin)))            
