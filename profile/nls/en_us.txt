@@ -19,8 +19,8 @@ ST-ctl-GV8-NAME = Temperature
 ST-ctl-GV9-NAME = Temperature
 ST-ctl-GV10-NAME = Temperature
 ST-ctl-GV3-NAME = PSI
-ST-ctl-GV15-NAME = Calibration SETP
-ST-ctl-GV16-NAME = Calibrated PSI
+#ST-ctl-GV15-NAME = Calibration SETP
+#ST-ctl-GV16-NAME = Calibrated PSI
 ST-ctl-ST-NAME = Online
 
 LVL-0 = Low Level

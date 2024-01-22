@@ -78,6 +78,7 @@ class GPMController(udi_interface.Node):
             self.setDriver('GV8', dataArray[7]) # Temperature1
             self.setDriver('GV9', dataArray[8]) # Temperature2
             self.setDriver('GV10', dataArray[9]) # Temperature3
+            
             # Online and Reading GPM
             if dataArray[0] == 0:
                 time.sleep(10)

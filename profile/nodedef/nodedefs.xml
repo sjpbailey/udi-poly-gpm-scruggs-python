@@ -17,8 +17,8 @@
             <st id="GV9" editor="TMP" />
             <st id="GV10" editor="TMP" />
             <st id="GV3" editor="PSI" />
-            <st id="GV15" editor="CALIT" />
-            <st id="GV16" editor="PSI" />
+            <!--st id="GV15" editor="CALIT" />
+            <st id="GV16" editor="PSI" /-->
             <st id="ST" editor="bool" />
 	</sts>
         <cmds>
