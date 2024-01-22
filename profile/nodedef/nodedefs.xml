@@ -13,9 +13,9 @@
             <st id="GV6" editor="PHP" />
             <st id="GV7" editor="MIL" />
             <st id="GV3" editor="PSI" />
-            <st id="GV8" editor="TMP" />
-            <st id="GV9" editor="TMP" />
-            <st id="GV10" editor="TMP" />
+            <st id="GV8" editor="TEMP" />
+            <st id="GV9" editor="TEMP" />
+            <st id="GV10" editor="TEMP" />
             <!--st id="GV15" editor="CALIT" />
             <st id="GV16" editor="PSI" /-->
             <st id="ST" editor="bool" />
